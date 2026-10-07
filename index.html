@@ -1,62 +1,126 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amandeep Krishi Seva Kendra Behat</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 body{background:#f5f5f5;padding-bottom:70px}
 .top{position:sticky;top:0;z-index:50;background:#e94f8c;color:#fff;padding:10px 12px 12px;border-radius:0 0 16px 16px}
 .logo{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#1b7a3d;font-weight:900;border:3px solid #0db14b}
-.deliver{background:#fff;margin:10px 12px;padding:10px;border-radius:10px;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
-.search{margin:0 12px;background:#fff;border-radius:10px;padding:11px;display:flex;gap:8px}
-.search input{border:none;flex:1;outline:none}
+.deliver{background:#fff;margin:10px 12px;padding:10px;border-radius:10px;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.08);display:flex;justify-content:space-between}
+.search-wrap{margin:0 12px;background:#fff;border-radius:10px;padding:11px;display:flex;gap:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:60px;z-index:40}
+.search-wrap input{border:none;flex:1;outline:none;font-size:14px}
 .trust{margin:8px 12px;background:#e6f4ea;padding:7px 10px;border-radius:8px;font-size:11px;color:#1b7a3d}
+.cat{display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+.cat span{background:#fff;border:1px solid #ddd;padding:6px 14px;border-radius:20px;font-size:12px;white-space:nowrap;cursor:pointer}
+.cat span.active{background:#e94f8c;color:#fff;border-color:#e94f8c}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px}
-.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee}
-.card img{width:100%;height:155px;object-fit:contain;background:#fafafa}
-.card-body{padding:8px}.price{font-weight:800}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee;cursor:pointer}
+.card img{width:100%;height:135px;object-fit:contain;background:#fafafa;padding:6px}
+.card-body{padding:8px}
+.card-body h3{font-size:11.5px;height:30px;overflow:hidden;line-height:1.3}
+.price{font-weight:800;font-size:13px}
+.mrp{font-size:10px;color:#888;text-decoration:line-through}
 #detail{position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow:auto;padding-bottom:90px}
-#detail.show{display:block}.detail-top{background:#e94f8c;color:#fff;padding:12px;display:flex;justify-content:space-between}
-.detail-img{width:100%;height:320px;object-fit:contain;background:#f9f9f9}
-.size-row{display:flex;gap:8px;margin:10px 0}.sz{flex:1;border:1.5px solid #ddd;padding:10px;border-radius:10px;text-align:center;cursor:pointer}.sz.active{border-color:#e94f8c;background:#fce4ec;color:#e94f8c}
+#detail.show{display:block}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;z-index:30}
 .btns{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px;display:flex;gap:10px;border-top:1px solid #eee}
-.btn{flex:1;padding:13px;border-radius:10px;font-weight:800;border:1.5px solid #e94f8c}.btn-fill{background:#e94f8c;color:#fff;border:none}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}
+.btn{flex:1;padding:13px;border-radius:10px;font-weight:800;border:1.5px solid #e94f8c}
+.btn-fill{background:#e94f8c;color:#fff;border:none}
 </style>
 </head>
 <body>
-<div class="top"><div style="display:flex;gap:8px;align-items:center"><div class="logo">AK</div><div><b>Amandeep Krishi Seva Kendra</b><br><small>Behat - Trusted • Quality • Fast</small></div></div></div>
-<div class="deliver">📍 Deliver to 144001 - Behat, Saharanpur ▼</div>
-<div class="search">🔍<input id="search" placeholder="Search for fertilizers, seeds..." oninput="filter()">🎤</div>
-<div class="trust">🌿 Farmer Trusted • Quality Products • Fast Delivery</div>
-<div style="display:flex;justify-content:space-between;padding:10px 12px 0"><b>Popular Products</b><span style="color:#e94f8c;font-size:12px">See all ></span></div>
+<div class="top"><div style="display:flex;gap:8px;align-items:center;justify-content:space-between"><div style="display:flex;gap:8px;align-items:center"><div class="logo">AK</div><div><b style="font-size:14px">Amandeep Krishi Seva Kendra</b><br><small>Behat - Har Company Available</small></div></div><div>🛒<span id="c">0</span></div></div></div>
+<div class="deliver"><span>📍 Deliver to 144001 - Behat</span><span>▼</span></div>
+<div class="search-wrap">🔍<input id="search" placeholder="Kuch bhi search karo - iffco, kribhco, urea, beej, corrosion..." oninput="filter()"><span onclick="document.getElementById('search').value='';filter()">✕</span></div>
+<div class="trust">🌿 40+ Products • IFFCO • KRIBHCO • Bayer • Syngenta • Har Company • Instant Search</div>
+<div class="cat" id="cat">
+<span class="active" onclick="catFilter('all',this)">All</span>
+<span onclick="catFilter('iffco',this)">IFFCO</span>
+<span onclick="catFilter('kribhco krlbhco',this)">KRIBHCO</span>
+<span onclick="catFilter('urea dap khad',this)">Khad</span>
+<span onclick="catFilter('beej seeds',this)">Beej</span>
+<span onclick="catFilter('corrosion dawa',this)">Dawa</span>
+</div>
+<div style="padding:0 12px;font-size:12px;color:#666"><span id="count">0</span> products mile</div>
 <div class="grid" id="grid"></div>
-<div class="bottom-nav"><div>🏠<br>Home</div><div>⊞<br>Categories</div><div>🛒<br>Cart <span id="c">0</span></div><div>👤<br>Profile</div></div>
+<div class="bottom-nav"><div>🏠<br>Home</div><div>⊞<br>Categories</div><div>🛒<br>Cart</div><div>👤<br>Profile</div></div>
 <div id="detail">
-<div class="detail-top"><span onclick="closeD()">←</span><b>Product Details</b><span>↗ ♡</span></div>
+<div style="background:#e94f8c;color:#fff;padding:12px;display:flex;justify-content:space-between"><span onclick="closeD()" style="cursor:pointer">← Back</span><b>Product Details</b><span>↗ ♡</span></div>
 <img id="dImg" style="width:100%;height:320px;object-fit:contain;background:#f9f9f9">
-<div style="padding:12px"><h2 id="dName"></h2><div id="dRate" style="font-size:13px">4.9 ⭐</div><div id="dPrice" style="font-size:22px;font-weight:900;color:#e94f8c"></div><div style="display:flex;gap:6px;margin-top:8px"><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">🚚 Free Delivery</span><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">💵 COD</span></div><p style="margin-top:14px;font-weight:700">Size</p><div class="size-row"><div class="sz active" onclick="sel(this)">50kg ✓</div><div class="sz" onclick="sel(this)">25kg</div></div><h3>Product Details</h3><p id="dDesc" style="font-size:13px;color:#444;line-height:1.6"></p></div>
-<div class="btns"><button class="btn" onclick="addCart()">Add to Cart</button><button class="btn btn-fill" onclick="buy()">Buy Now</button></div>
+<div style="padding:12px"><h2 id="dName"></h2><div id="dRate" style="font-size:13px;margin:4px 0"></div><div id="dPrice" style="font-size:22px;font-weight:900;color:#e94f8c"></div><div style="display:flex;gap:6px;margin:8px 0"><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">🚚 Free Delivery</span><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">💵 COD</span></div><p id="dDesc" style="font-size:13px;color:#444;line-height:1.6;margin-top:10px;white-space:pre-line"></p></div>
+<div class="btns"><button class="btn" onclick="addCart()">Add to Cart</button><button class="btn btn-fill" onclick="buy()">Buy Now WhatsApp</button></div>
 </div>
 <script>
 const products=[
-{name:"Sudaan Shakti Hari Bori 50kg",price:"Rs 400",mrp:"Rs 550",rating:"4.9 (1.2k Ratings • 450 Reviews)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",desc:"High nitrogen fertilizer for crops\\nImproves soil strength & yield\\nSuitable for all crops"},
-{name:"Hybrid Maize Seeds 1kg",price:"Rs 220",mrp:"Rs 300",rating:"4.5 (120)",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",desc:"High yield hybrid maize"},
-{name:"Insecticide SafeGuard 500ml",price:"Rs 185",mrp:"Rs 250",rating:"4.3 (98)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",desc:"Best insecticide"},
-{name:"Organic Compost 5kg",price:"Rs 150",mrp:"Rs 200",rating:"4.6 (210)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",desc:"Pure organic"},
-{name:"Spray Pump 5L",price:"Rs 650",mrp:"Rs 800",rating:"4.4 (76)",img:"https://images.unsplash.com/photo-1581147036324-c17ac41dfa3b?w=500",desc:"5L pump"},
-{name:"John Sarson Beej 1kg",price:"Rs 920",mrp:"Rs 1100",rating:"4.9 (850)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",desc:"Mustard seeds high yield"}
+{name:"IFFCO Urea Peeli Bori 45kg",price:"Rs 266",mrp:"Rs 320",rating:"4.9 (2.1k)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco urea peeli bori khad fertilizer nitrogen"},
+{name:"IFFCO DAP Kaali Bori 50kg",price:"Rs 1350",mrp:"Rs 1500",rating:"4.8 (1.2k)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco dap kali bori phosphate khad"},
+{name:"IFFCO NPK 10:26:26 50kg",price:"Rs 1450",mrp:"Rs 1600",rating:"4.7 (600)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco npk 10 26 26 fertilizer khad"},
+{name:"IFFCO NPK 12:32:16 50kg",price:"Rs 1470",mrp:"Rs 1620",rating:"4.7 (400)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco npk 12 32 16 khad"},
+{name:"IFFCO Sagarika Liquid 500ml",price:"Rs 280",mrp:"Rs 350",rating:"4.6 (350)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco sagarika seaweed liquid growth"},
+{name:"IFFCO Nano Urea 500ml",price:"Rs 240",mrp:"Rs 300",rating:"4.8 (900)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco nano urea liquid new khad"},
+{name:"IFFCO Nano DAP 500ml",price:"Rs 600",mrp:"Rs 700",rating:"4.8 (500)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco nano dap liquid"},
+{name:"IFFCO Zinc Sulphate 5kg",price:"Rs 320",mrp:"Rs 380",rating:"4.5 (200)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco zinc sulphate micronutrient"},
+{name:"KRIBHCO Urea Peeli Bori 45kg",price:"Rs 266",mrp:"Rs 320",rating:"4.9 (1k)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"kribhco krlbhco krishak bharati urea peeli bori khad"},
+{name:"KRIBHCO DAP 50kg",price:"Rs 1350",mrp:"Rs 1500",rating:"4.8 (800)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco krlbhco dap kali bori khad"},
+{name:"KRIBHCO NPK 10:26:26 50kg",price:"Rs 1450",mrp:"Rs 1600",rating:"4.7 (350)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco krlbhco npk fertilizer"},
+{name:"KRIBHCO Neem Coated Urea 45kg",price:"Rs 280",mrp:"Rs 330",rating:"4.7 (300)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"kribhco krlbhco neem coated urea bori"},
+{name:"KRIBHCO Biofertilizer 1kg",price:"Rs 180",mrp:"Rs 220",rating:"4.6 (150)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco krlbhco biofertilizer azotobacter organic"},
+{name:"KRIBHCO Sagarika Granules 10kg",price:"Rs 650",mrp:"Rs 750",rating:"4.5 (120)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco krlbhco sagarika granules seaweed"},
+{name:"Sudaan Shakti Hari Bori 50kg",price:"Rs 400",mrp:"Rs 550",rating:"4.9 (1.2k)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"sudaan shakti hari bori compost organic"},
+{name:"Corrosion Fungicide 500ml",price:"Rs 380",mrp:"Rs 480",rating:"4.8 (320)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"corrosion fungicide dawa pesticide"},
+{name:"Corrosion Super 1L",price:"Rs 650",mrp:"Rs 780",rating:"4.7 (180)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"corrosion super fungicide"},
+{name:"John Sarson Beej Super Gold 1kg",price:"Rs 920",mrp:"Rs 1100",rating:"4.9 (850)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",tags:"john sarson beej mustard sarso"},
+{name:"Pioneer 45S46 Sarson 1kg",price:"Rs 850",mrp:"Rs 950",rating:"4.8 (500)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",tags:"pioneer 45s46 sarson mustard beej"},
+{name:"Bayer Makka DKC 9108 1kg",price:"Rs 450",mrp:"Rs 550",rating:"4.7 (320)",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",tags:"bayer dekab dkc makka maize beej hybrid"},
+{name:"Syngenta NK 6240 Makka 1kg",price:"Rs 480",mrp:"Rs 580",rating:"4.8 (400)",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",tags:"syngenta nk makka maize beej"},
+{name:"Gehun Beej HD-3226 10kg",price:"Rs 1100",mrp:"Rs 1250",rating:"4.8 (200)",img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500",tags:"gehun wheat beej hd3226"},
+{name:"Bayer Confidor 200ml",price:"Rs 520",mrp:"Rs 600",rating:"4.8 (450)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"bayer confidor insecticide dawa"},
+{name:"Coragen 100ml",price:"Rs 1450",mrp:"Rs 1600",rating:"4.9 (800)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"coragen fmc dupont insecticide"},
+{name:"UPL Saaf Fungicide 500g",price:"Rs 380",mrp:"Rs 450",rating:"4.7 (500)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"upl saaf fungicide"},
+{name:"Spray Pump Battery 16L",price:"Rs 2850",mrp:"Rs 3500",rating:"4.6 (400)",img:"https://images.unsplash.com/photo-1581147036324-c17ac41dfa3b?w=500",tags:"spray pump battery machine tools"},
+{name:"Potash Lal Bori 50kg",price:"Rs 900",mrp:"Rs 1050",rating:"4.5 (250)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"potash mop lal bori khad potassium"},
+{name:"Vermi Compost 50kg",price:"Rs 550",mrp:"Rs 650",rating:"4.7 (300)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"vermi compost organic khad"}
 ];
-let cur=null,cart=0;const grid=document.getElementById('grid');
-function render(list){grid.innerHTML="";list.forEach((p,i)=>{grid.innerHTML+=`<div class="card" onclick="openD(${i})"><img src="${p.img}"><div class="card-body"><h3 style="font-size:12px;height:32px;overflow:hidden">${p.name}</h3><div class="price">${p.price} <span style="text-decoration:line-through;color:#888;font-size:11px">${p.mrp}</span></div><div style="font-size:11px">⭐ ${p.rating}</div></div></div>`})}
+let cur=null,cart=0;
+function render(list){
+  const grid=document.getElementById('grid');
+  document.getElementById('count').innerText=list.length;
+  grid.innerHTML="";
+  if(list.length==0){
+    let q=document.getElementById('search').value;
+    grid.innerHTML=`<div style='grid-column:1/3;text-align:center;padding:40px 10px'><div style='font-size:40px'>😔</div><b>'${q}' नहीं मिला</b><br><small>Try: iffco, kribhco, krlbhco, urea, dap, corrosion, sarson</small><br><br><button onclick="document.getElementById('search').value='';filter()" style='background:#e94f8c;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-weight:700'>सभी ${products.length} देखो</button></div>`;
+    return;
+  }
+  list.forEach(p=>{
+    let oi=products.indexOf(p);
+    grid.innerHTML+=`<div class="card" onclick="openD(${oi})"><img src="${p.img}"><div class="card-body"><h3>${p.name}</h3><div class="price">${p.price} <span class="mrp">${p.mrp}</span></div><div style="font-size:10px;color:#555">⭐ ${p.rating}</div></div></div>`;
+  });
+}
 render(products);
-function openD(i){cur=products[i];document.getElementById('dImg').src=cur.img;document.getElementById('dName').innerText=cur.name;document.getElementById('dPrice').innerText=cur.price;document.getElementById('dRate').innerText=cur.rating;document.getElementById('dDesc').innerText=cur.desc;document.getElementById('detail').classList.add('show')}
+function filter(){
+  let q=document.getElementById('search').value.toLowerCase().trim();
+  if(q==""){render(products);return;}
+  let words=q.split(" ");
+  let filtered=products.filter(p=>{
+    let text=(p.name+" "+p.tags).toLowerCase();
+    return words.every(w=>text.includes(w));
+  });
+  render(filtered);
+}
+function catFilter(q,el){
+  document.querySelectorAll('.cat span').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+  if(q=='all'){document.getElementById('search').value='';render(products);return;}
+  document.getElementById('search').value=q;
+  filter();
+}
+function openD(i){cur=products[i];document.getElementById('dImg').src=cur.img;document.getElementById('dName').innerText=cur.name;document.getElementById('dPrice').innerText=cur.price+" "+cur.mrp;document.getElementById('dRate').innerText="⭐ "+cur.rating+" • "+cur.tags;document.getElementById('dDesc').innerText=cur.name+"\n\nCompany Tags: "+cur.tags+"\n\n• 100% Genuine\n• Free Delivery Behat\n• COD Available\n• Amandeep Krishi Seva Kendra Behat";document.getElementById('detail').classList.add('show')}
 function closeD(){document.getElementById('detail').classList.remove('show')}
-function sel(e){document.querySelectorAll('.sz').forEach(s=>s.classList.remove('active'));e.classList.add('active')}
 function addCart(){cart++;document.getElementById('c').innerText=cart;alert('Cart me add!')}
-function buy(){let m=`Namaste Amandeep Krishi Seva Kendra Behat, Mujhe ${cur.name} - ${cur.price} chahiye`;window.open(`https://wa.me/917817005859?text=${m}`,'_blank')}
-function filter(){let q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.name.toLowerCase().includes(q)))}
+function buy(){if(!cur)return;let m=`Namaste Amandeep Krishi Seva Kendra Behat,%0AProduct: ${cur.name} - ${cur.price}%0ASearch: ${document.getElementById('search').value}`;window.open(`https://wa.me/917817005859?text=${m}`,'_blank')}
 </script>
 </body>
 </html>
