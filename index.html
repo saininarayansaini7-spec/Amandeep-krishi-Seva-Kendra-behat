@@ -2,88 +2,118 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Amandeep Krishi Seva Kendra - Behat - John Sarson Special</title>
+<title>Amandeep Krishi Seva Kendra Behat - Future Store</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-@keyframes marquee {0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-.marquee{animation:marquee 14s linear infinite; white-space:nowrap;}
+@keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.marquee{animation:marquee 15s linear infinite; white-space:nowrap;}
 </style>
 </head>
-<body class="bg-[#eef5ee] pb-28">
+<body class="bg-[#101010] pb-28 text-white font-sans">
 
-<!-- LIVE CHALTI PATTI - JOHN COMPANY -->
-<div class="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 text-black py-2 overflow-hidden sticky top-0 z-[70] font-bold text-[11px] flex border-b-2 border-black">
-<div class="marquee">
-🌟 JOHN COMPANY KA SARSON BEEJ SPECIAL LIVE 🔥 PUSA BOLD 5kg ₹850 | JOHN SUPER GOLD 5kg ₹920 - 45% OIL - SABSE ACHHA BEEJ 🌟 BEHAT PETROL PUMP - AMANDEEP KRISHI 7817005859 🌟 JOHN COMPANY SARSON SPECIAL LIVE 🔥
+<!-- GOOGLE STYLE SEARCH -->
+<div class="bg-[#202124] p-3 sticky top-0 z-[80] border-b border-zinc-800">
+<div class="flex items-center gap-2">
+<div class="flex-1 bg-[#303134] rounded-full flex items-center px-4 py-3 gap-3 border border-zinc-600">
+<i class="fa-solid fa-magnifying-glass text-zinc-400"></i>
+<input id="search" onkeyup="filterP()" placeholder="Search: DAP, Uriya Peeli Bori, John, Confidor..." class="bg-transparent outline-none w-full text-[14px] text-white placeholder-zinc-400">
+<button onclick="clearS()"><i class="fa-solid fa-xmark text-zinc-400"></i></button>
 </div>
 </div>
-<div class="bg-[#0e3a24] text-green-200 text-center py-1.5 text-[9px] tracking-widest font-bold">● AMANDEEP KRISHI SEVA KENDRA | PETROL PUMP BEHAT | 7817005859</div>
-
-<!-- HEADER -->
-<div class="bg-white m-3 rounded-[24px] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex gap-4 items-center">
-<div class="w-16 h-16 rounded-[18px] bg-gradient-to-br from-green-700 to-emerald-400 flex items-center justify-center text-white text-[26px] shadow-lg">🌾</div>
-<div class="flex-1"><h1 class="font-bold text-[17px] leading-5 text-[#0e3a24]">अमनदीप कृषि<br>सेवा केंद्र</h1><p class="text-[10px] text-gray-500 font-bold mt-1"><i class="fa-solid fa-location-dot text-green-600"></i> PETROL PUMP KE PASS, BEHAT</p></div>
-<a href="tel:7817005859" class="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center"><i class="fa-solid fa-phone"></i></a>
-</div>
-
-<!-- JOHN SARSON VIP CARD -->
-<div class="mx-3 rounded-[24px] p-[2px] bg-gradient-to-br from-yellow-400 to-amber-600 shadow-xl">
-<div class="bg-gradient-to-br from-[#fffbeb] to-white rounded-[22px] p-4 relative">
-<span class="absolute top-3 right-3 bg-red-600 text-white text-[8px] px-2 py-1 rounded-full font-bold animate-pulse">● LIVE SPECIAL</span>
-<div class="flex gap-3 items-center">
-<div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-[18px] flex flex-col items-center justify-center font-bold shadow text-black"><span class="text-[24px]">🌻</span><span class="text-[9px]">JOHN</span><span class="text-[7px]">COMPANY</span></div>
-<div class="flex-1"><h2 class="font-bold text-[15px] text-[#0e3a24]">John Super Gold Sarson</h2><p class="text-[10px] text-amber-700 font-bold">45% Oil • 120 Din • Behat Best</p><p class="text-[10px] text-gray-500">John Company Ka Achha Beej</p><div class="mt-1"><b class="text-[22px]">₹920</b><span class="text-[11px]">/5kg</span> <span class="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Original</span></div></div>
-</div>
-<div class="flex gap-2 mt-3"><button onclick="o('JOHN SUPER GOLD Sarson 5kg Rs 920 - LIVE SPECIAL')" class="flex-1 bg-black text-white py-3 rounded-full font-bold text-[12px]"><i class="fa-solid fa-bolt"></i> स्पेशल ऑर्डर करो</button><a href="https://wa.me/917817005859?text=John Sarson Chahiye" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></a></div>
+<div class="flex gap-2 mt-3 overflow-x-auto no-scrollbar">
+<button class="bg-[#303134] px-3 py-1.5 rounded-full text-[11px] border border-zinc-600"><i class="fa-solid fa-sliders"></i> Filter</button>
+<button class="bg-white text-black px-3 py-1.5 rounded-full text-[11px] font-bold">All Products</button>
+<button class="bg-[#303134] px-3 py-1.5 rounded-full text-[11px]">Khad</button>
+<button class="bg-[#303134] px-3 py-1.5 rounded-full text-[11px]">Beej</button>
+<button class="bg-[#303134] px-3 py-1.5 rounded-full text-[11px]">Dawai</button>
 </div>
 </div>
 
-<div class="p-3 space-y-4">
-
-<!-- KHAD SECTION -->
-<div class="bg-white rounded-[26px] p-4 shadow">
-<div class="flex justify-between items-center mb-4"><h3 class="font-bold text-[15px]"><i class="fa-solid fa-bag-shopping text-green-600"></i> खाद - DAP 1350 / Uriya 280</h3><span class="text-[9px] bg-green-50 text-green-700 px-2 py-1 rounded-full font-bold border">भाव आज के</span></div>
-<div class="grid grid-cols-2 gap-2 mb-2">
-<div class="border-2 border-green-600 p-3 rounded-[16px] bg-green-50 text-center"><b class="text-[13px]">Uriya 45kg</b><p class="text-[10px] text-gray-500">IFFCO</p><b class="text-[20px] text-green-700">₹280</b><br><button onclick="o('Uriya Urea 45kg Rs 280')" class="mt-2 bg-[#0e3a24] text-white w-full py-2 rounded-full text-[11px] font-bold">ऑर्डर</button></div>
-<div class="border-2 border-yellow-500 p-3 rounded-[16px] bg-yellow-50 text-center"><b class="text-[13px]">DAP 50kg</b><p class="text-[10px] text-gray-500">IFFCO 18-46-0</p><b class="text-[20px] text-[#0e3a24]">₹1350</b><br><button onclick="o('DAP 50kg Rs 1350')" class="mt-2 bg-[#0e3a24] text-white w-full py-2 rounded-full text-[11px] font-bold">ऑर्डर</button></div>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between items-center border p-3 rounded-xl"><div><b class="text-[12px]">MOP Potash 50kg</b><br><span class="text-[10px] text-gray-500">₹1700</span></div><button onclick="o('MOP 1700')" class="bg-black text-white px-4 py-1.5 rounded-full text-[10px]">ऑर्डर</button></div>
-<div class="flex justify-between items-center border p-3 rounded-xl"><div><b class="text-[12px]">SSP 50kg</b><br><span class="text-[10px] text-gray-500">₹450</span></div><button onclick="o('SSP 450')" class="bg-black text-white px-4 py-1.5 rounded-full text-[10px]">ऑर्डर</button></div>
-</div>
+<!-- LIVE PATTI -->
+<div class="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 text-black py-2 overflow-hidden font-bold text-[11px] flex">
+<div class="marquee">🔥 JOHN COMPANY SUPER GOLD SARSON BEEJ ₹920 - 45% OIL - LIVE SPECIAL 🔥 URIYA PEELI BORI ₹280 | DAP ₹1350 | BEHAT PETROL PUMP - AMANDEEP KRISHI 7817005859 🔥</div>
 </div>
 
-<!-- SARSON BEEJ -->
-<div class="bg-white rounded-[26px] p-4 shadow">
-<h3 class="font-bold text-[14px] mb-3">🌻 सरसों बीज - John Company</h3>
-<div class="space-y-2">
-<div class="flex justify-between items-center border-2 border-yellow-400 p-3 rounded-xl bg-yellow-50"><div><b class="text-[12px]">John Super Gold 5kg 🔥</b><br><span class="text-[10px] font-bold text-amber-700">45% तेल - ₹920</span></div><button onclick="o('John Super Gold 920')" class="bg-yellow-500 text-black px-4 py-2 rounded-full text-[11px] font-bold">ऑर्डर</button></div>
-<div class="flex justify-between items-center border p-3 rounded-xl"><div><b class="text-[12px]">John Pusa Bold 5kg</b><br><span class="text-[10px] text-gray-500">₹850</span></div><button onclick="o('John Pusa Bold 850')" class="bg-black text-white px-4 py-2 rounded-full text-[10px]">ऑर्डर</button></div>
-<div class="flex justify-between items-center border p-3 rounded-xl"><div><b class="text-[12px]">Gehu HD 2967 40kg</b><br><span class="text-[10px] text-gray-500">₹1600</span></div><button onclick="o('Gehu 1600')" class="bg-black text-white px-4 py-2 rounded-full text-[10px]">ऑर्डर</button></div>
+<div class="p-3">
+<p class="text-[18px] font-bold mb-2">Sponsored Products • Amandeep Krishi Behat</p>
+<div id="grid" class="grid grid-cols-2 gap-3">
+
+<!-- 1. JOHN SARSON -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="john company sarson beej mustard super gold pusa bold 45 oil">
+<div class="relative"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[9px] px-2 py-1 rounded-full font-bold">JOHN LIVE</span><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500" class="w-full h-48 object-cover"></div>
+<div class="p-3 text-black"><p class="text-[12px] font-bold leading-4">John Company Super Gold Sarson Beej 5kg - 45% Oil - Best for Behat</p><div class="flex gap-2 items-baseline mt-2"><span class="text-[#0a7a07] font-bold text-[17px]">₹920</span><span class="text-[12px] line-through text-zinc-500">₹1050</span></div><p class="text-[10px] text-zinc-500 mt-1">✓ 120 Din • Original • In Stock</p></div>
+<button onclick="order('John Super Gold Sarson 5kg Rs 920')" class="w-full bg-black text-white py-3 text-[12px] font-bold">🛒 Order Now</button>
+</div>
+
+<!-- 2. URIYA PEELI BORI -->
+<div class="prod bg-white rounded-[20px] overflow-hidden border-2 border-green-600" data-name="uriya urea peeli bori yellow iffco 45kg 280">
+<div class="relative"><span class="absolute top-2 left-2 bg-green-600 text-white text-[9px] px-2 py-1 rounded-full font-bold">PEELI BORI</span><img src="https://5.imimg.com/data5/SELLER/Default/2022/9/LN/GL/DM/155864477/urea-fertilizer-500x500.jpg" class="w-full h-48 object-contain bg-[#fffde7] p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px] font-bold leading-4">Uriya Peeli Bori 45kg - IFFCO - Original Behat</p><div class="flex gap-2 items-baseline mt-2"><span class="text-[#0a7a07] font-bold text-[17px]">₹280</span><span class="text-[12px] line-through text-zinc-500">₹300</span></div><p class="text-[10px] text-green-700 font-bold mt-1">● 120 Bori Available</p></div>
+<button onclick="order('Uriya Peeli Bori 45kg Rs 280')" class="w-full bg-green-700 text-white py-3 text-[12px] font-bold">🛒 Order</button>
+</div>
+
+<!-- 3. DAP -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="dap 50kg iffco 18-46-0 1350">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://5.imimg.com/data5/SELLER/Default/2023/6/316665702/EM/NS/OW/199692614/dap-fertilizer-500x500.jpg" class="w-full h-48 object-contain p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px] font-bold">DAP 50kg IFFCO - 18-46-0 - Gehu No.1</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[17px]">₹1350</span><span class="text-[12px] line-through text-zinc-500">₹1400</span></div><p class="text-[10px] text-zinc-500">Behat Stock</p></div>
+<button onclick="order('DAP 50kg Rs 1350')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
+<!-- 4. PROFENO PLUS CYPHER -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="profeno plus cypher profenofos 40 cypermethrin 4 ramban plus cyber">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://5.imimg.com/data5/SELLER/Default/2023/10/353543717/KO/EX/OO/200864614/profenofos-40-cypermethrin-4-ec-500x500.jpg" class="w-full h-48 object-contain p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px] font-bold leading-4">Profeno Plus Cypher 1Ltr - Ramban Dawai - Lashkari</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[17px]">₹650</span><span class="text-[12px] line-through text-zinc-500">₹820</span></div><p class="text-[10px] text-zinc-500">Profenofos 40% + Cyper 4%</p></div>
+<button onclick="order('Profeno Plus Cypher 1Ltr Rs 650')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
+<!-- 5. BAYER CONFIDOR -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="bayer confidor imidacloprid 50ml 17.8 sl">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe3u8K1f9X9x9x" onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2022/9/LN/GL/DM/155864477/urea-fertilizer-500x500.jpg'" class="w-full h-48 object-contain p-2" alt="Confidor"><img src="https://m.media-amazon.com/images/I/41QK2aC2vQL.jpg" class="w-full h-48 object-contain p-2 absolute top-0 left-0 bg-white"></div>
+<div class="p-3 text-black"><p class="text-[12px]">Bayer Confidor 50ml - Imidacloprid 17.8% SL</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[16px]">₹260</span><span class="text-[12px] line-through text-zinc-500">₹280</span></div><p class="text-[10px] text-zinc-500">Amazon Price - Behat me sasta</p></div>
+<button onclick="order('Bayer Confidor 50ml Rs 260')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
+<!-- 6. SUMITOMO TRICEL -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="sumitomo tricel chlorpyrifos 20 ec">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://5.imimg.com/data5/SELLER/Default/2021/9/UY/VJ/QT/125514/coragen-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px]">Sumitomo Tricel Chlorpyrifos 20% EC 500ml</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[16px]">₹250</span><span class="text-[12px] line-through text-zinc-500">₹344</span></div><p class="text-[10px] text-zinc-500">Amazon.in</p></div>
+<button onclick="order('Tricel 500ml Rs 250')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
+<!-- 7. CORAGEN -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="coragen fmc chlorantraniliprole 60ml">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://5.imimg.com/data5/SELLER/Default/2023/3/293693030/QM/UP/SA/199692614/ampligo-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px]">Coragen 60ml - FMC - Tana Chedak Ramban</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[16px]">₹1550</span><span class="text-[12px] line-through text-zinc-500">₹1700</span></div></div>
+<button onclick="order('Coragen 60ml Rs 1550')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
+<!-- 8. MOP POTASH -->
+<div class="prod bg-white rounded-[20px] overflow-hidden" data-name="mop potash 50kg">
+<div class="relative"><span class="absolute top-2 left-2 bg-black text-white text-[9px] px-2 py-1 rounded-full font-bold">SALE</span><img src="https://5.imimg.com/data5/SELLER/Default/2023/9/344933463/LJ/QW/NN/200864614/mop-fertilizer-500x500.jpg" class="w-full h-48 object-contain p-2"></div>
+<div class="p-3 text-black"><p class="text-[12px]">MOP Potash 50kg - Lal Wala</p><div class="flex gap-2 mt-2"><span class="text-[#0a7a07] font-bold text-[16px]">₹1700</span><span class="text-[12px] line-through text-zinc-500">₹1850</span></div></div>
+<button onclick="order('MOP 50kg Rs 1700')" class="w-full bg-black text-white py-3 text-[12px] font-bold">Order</button>
+</div>
+
 </div>
 </div>
 
-<!-- DAWAI -->
-<div class="bg-[#0f172a] rounded-[26px] p-4 text-white">
-<h3 class="font-bold text-[14px] mb-3">🔥 दवाई - Per Fano Plus Cyber</h3>
-<div class="space-y-2">
-<div class="bg-white text-black p-3 rounded-[14px] flex justify-between items-center border-2 border-red-500"><div><b class="text-[12px]">Per Fano Plus Cyber 1Ltr 🔥</b><br><span class="text-[10px]">₹650 TOP SELLER</span></div><button onclick="o('Per Fano Plus Cyber 650')" class="bg-red-600 text-white px-4 py-2 rounded-full text-[11px] font-bold">ऑर्डर</button></div>
-<div class="flex justify-between items-center bg-white/10 p-3 rounded-xl"><div><b class="text-[12px]">Coragen 60ml</b> - ₹1550</div><button onclick="o('Coragen 1550')" class="bg-white text-black px-3 py-1.5 rounded-full text-[10px]">ऑर्डर</button></div>
-<div class="flex justify-between items-center bg-white/10 p-3 rounded-xl"><div><b class="text-[12px]">Ampligo 100ml</b> - ₹950</div><button onclick="o('Ampligo 950')" class="bg-white text-black px-3 py-1.5 rounded-full text-[10px]">ऑर्डर</button></div>
-<div class="flex justify-between items-center bg-white/10 p-3 rounded-xl"><div><b class="text-[12px]">Roundup 1Ltr</b> - ₹550</div><button onclick="o('Roundup 550')" class="bg-white text-black px-3 py-1.5 rounded-full text-[10px]">ऑर्डर</button></div>
-</div>
+<!-- BOTTOM BAR -->
+<div class="fixed bottom-0 left-0 right-0 bg-[#202124] p-3 flex gap-2 border-t border-zinc-700 z-50 rounded-t-[20px]">
+<a href="tel:7817005859" class="flex-1 bg-[#303134] text-white text-center py-3.5 rounded-full font-bold text-[12px] border border-zinc-600">📞 कॉल</a>
+<a href="https://wa.me/917817005859?text=Namaste Amandeep Krishi Behat, Order chahiye" class="flex-[2] bg-white text-black text-center py-3.5 rounded-full font-bold text-[13px]">WhatsApp पर ऑर्डर</a>
 </div>
 
-<div class="bg-white rounded-[20px] p-4 text-[11px] text-center">📍 <b>Amandeep Krishi Seva Kendra</b> - Petrol Pump Behat<br>📞 7817005859 | किसान को हर प्रोडक्ट मिलेगा</div>
-
-</div>
-
-<div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur p-3 border-t flex gap-2 z-50 rounded-t-[20px] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
-<a href="tel:7817005859" class="flex-1 bg-gray-100 text-center py-3.5 rounded-full font-bold text-[12px]"><i class="fa-solid fa-phone"></i> कॉल</a>
-<a href="https://wa.me/917817005859?text=नमस्ते अमनदीप कृषि Behat, John Sarson Beej चाहिए" class="flex-[2] bg-[#0e3a24] text-white text-center py-3.5 rounded-full font-bold text-[13px]"><i class="fa-brands fa-whatsapp"></i> WhatsApp ऑर्डर</a>
-</div>
-
-<script>function o(n){window.open("https://wa.me/917817005859?text=नमस्ते अमनदीप कृषि Behat 🙏%0AMujhe chahiye: "+encodeURIComponent(n)+"%0ANaam:%0AGaon:","_blank");}</script>
+<script>
+function order(n){window.open("https://wa.me/917817005859?text=नमस्ते अमनदीप कृषि Behat 🙏%0AProduct: "+encodeURIComponent(n)+"%0ANaam:%0AGaon:","_blank");}
+function filterP(){
+ let q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.prod').forEach(c=>{
+  let name=c.getAttribute('data-name');
+  c.style.display=name.includes(q)?'':'none';
+ });
+}
+function clearS(){document.getElementById('search').value='';filterP();}
+</script>
 </body>
 </html>
