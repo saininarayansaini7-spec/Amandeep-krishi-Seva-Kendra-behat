@@ -1,183 +1,62 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Amandeep Krishi Behat - Best Company Store | Syngenta | Sudaan Shakti Special</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amandeep Krishi Seva Kendra Behat</title>
 <style>
-@keyframes glow{0%{box-shadow:0 0 10px #22c55e}50%{box-shadow:0 0 25px #eab308}100%{box-shadow:0 0 10px #22c55e}}
-.glow{animation:glow 2s infinite}
-@keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-.marquee{animation:marquee 16s linear infinite;white-space:nowrap}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:#f5f5f5;padding-bottom:70px}
+.top{position:sticky;top:0;z-index:50;background:#e94f8c;color:#fff;padding:10px 12px 12px;border-radius:0 0 16px 16px}
+.logo{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#1b7a3d;font-weight:900;border:3px solid #0db14b}
+.deliver{background:#fff;margin:10px 12px;padding:10px;border-radius:10px;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.search{margin:0 12px;background:#fff;border-radius:10px;padding:11px;display:flex;gap:8px}
+.search input{border:none;flex:1;outline:none}
+.trust{margin:8px 12px;background:#e6f4ea;padding:7px 10px;border-radius:8px;font-size:11px;color:#1b7a3d}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee}
+.card img{width:100%;height:155px;object-fit:contain;background:#fafafa}
+.card-body{padding:8px}.price{font-weight:800}
+#detail{position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow:auto;padding-bottom:90px}
+#detail.show{display:block}.detail-top{background:#e94f8c;color:#fff;padding:12px;display:flex;justify-content:space-between}
+.detail-img{width:100%;height:320px;object-fit:contain;background:#f9f9f9}
+.size-row{display:flex;gap:8px;margin:10px 0}.sz{flex:1;border:1.5px solid #ddd;padding:10px;border-radius:10px;text-align:center;cursor:pointer}.sz.active{border-color:#e94f8c;background:#fce4ec;color:#e94f8c}
+.btns{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px;display:flex;gap:10px;border-top:1px solid #eee}
+.btn{flex:1;padding:13px;border-radius:10px;font-weight:800;border:1.5px solid #e94f8c}.btn-fill{background:#e94f8c;color:#fff;border:none}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}
 </style>
 </head>
-<body class="bg-[#0f0f0f] pb-28 text-white">
-
-<!-- HEADER -->
-<div class="bg-[#181818] p-3 flex items-center justify-between sticky top-0 z-50 border-b border-zinc-800">
-<div class="flex items-center gap-2"><i class="fa-solid fa-bars"></i><b>🌿 Amandeep Krishi Behat</b></div>
-<div class="flex gap-4 text-zinc-300"><i class="fa-regular fa-heart"></i><i class="fa-solid fa-cart-shopping"></i></div>
+<body>
+<div class="top"><div style="display:flex;gap:8px;align-items:center"><div class="logo">AK</div><div><b>Amandeep Krishi Seva Kendra</b><br><small>Behat - Trusted • Quality • Fast</small></div></div></div>
+<div class="deliver">📍 Deliver to 144001 - Behat, Saharanpur ▼</div>
+<div class="search">🔍<input id="search" placeholder="Search for fertilizers, seeds..." oninput="filter()">🎤</div>
+<div class="trust">🌿 Farmer Trusted • Quality Products • Fast Delivery</div>
+<div style="display:flex;justify-content:space-between;padding:10px 12px 0"><b>Popular Products</b><span style="color:#e94f8c;font-size:12px">See all ></span></div>
+<div class="grid" id="grid"></div>
+<div class="bottom-nav"><div>🏠<br>Home</div><div>⊞<br>Categories</div><div>🛒<br>Cart <span id="c">0</span></div><div>👤<br>Profile</div></div>
+<div id="detail">
+<div class="detail-top"><span onclick="closeD()">←</span><b>Product Details</b><span>↗ ♡</span></div>
+<img id="dImg" style="width:100%;height:320px;object-fit:contain;background:#f9f9f9">
+<div style="padding:12px"><h2 id="dName"></h2><div id="dRate" style="font-size:13px">4.9 ⭐</div><div id="dPrice" style="font-size:22px;font-weight:900;color:#e94f8c"></div><div style="display:flex;gap:6px;margin-top:8px"><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">🚚 Free Delivery</span><span style="background:#e8f5e9;padding:4px 8px;border-radius:10px;font-size:11px">💵 COD</span></div><p style="margin-top:14px;font-weight:700">Size</p><div class="size-row"><div class="sz active" onclick="sel(this)">50kg ✓</div><div class="sz" onclick="sel(this)">25kg</div></div><h3>Product Details</h3><p id="dDesc" style="font-size:13px;color:#444;line-height:1.6"></p></div>
+<div class="btns"><button class="btn" onclick="addCart()">Add to Cart</button><button class="btn btn-fill" onclick="buy()">Buy Now</button></div>
 </div>
-
-<!-- SEARCH -->
-<div class="bg-[#202124] p-3 sticky top-[52px] z-40">
-<div class="bg-[#303134] rounded-full flex items-center px-4 py-3 gap-3 border border-zinc-600">
-<i class="fa-solid fa-magnifying-glass text-zinc-400"></i>
-<input id="searchBox" onkeyup="filterProd()" placeholder="Search: Sudaan Shakti, Syngenta Ampligo, IFFCO, John, Uriya..." class="bg-transparent outline-none w-full text-[14px] placeholder-zinc-400">
-</div>
-</div>
-
-<!-- TIMER OFFER -->
-<div class="bg-red-600 text-white text-center py-2.5 text-[11px] font-bold">
-⏰ SPECIAL OFFER खत्म होने में: <span id="timer">02:15:30</span> | Free Delivery ₹499+ | Behat
-</div>
-
-<!-- FASLON KE LIYE SABSE SPECIAL BANNER - SUDAN SHAKTI -->
-<div class="m-3 rounded-[18px] bg-gradient-to-r from-green-600 via-yellow-400 to-green-600 p-[2.5px] glow">
-<div class="bg-black rounded-[16px] p-4 flex justify-between items-center">
-<div>
-<p class="text-yellow-400 font-black text-[11px] animate-pulse">🔥 FASLON KE LIYE SABSE SPECIAL ADD 🔥</p>
-<h1 class="font-black text-[17px]">SUDAAN SHAKTI - RESULT BOLTA HAI!</h1>
-<p class="text-[10px] text-zinc-400">Fasal Formula • Extra Super Phospho • All Crops</p>
-</div>
-<span class="bg-red-600 px-3 py-2 rounded-full text-[10px] font-bold animate-pulse">SALE 16% OFF</span>
-</div>
-</div>
-
-<div class="bg-yellow-400 text-black py-2 overflow-hidden font-black text-[11px] flex">
-<div class="marquee">🏆 BEST COMPANY PRODUCTS LIVE: IFFCO • FMC • BAYER • SYNGENTA • UPL • CORTEVA • JOHN • SUDAAN SHAKTI HARI BORI ₹400 | JOHN SARSON SUPER GOLD ₹920 | URIYA ₹280 | DAP ₹1350 | SYNGENTA AMPLIGO ₹950 | AMANDEEP KRISHI BEHAT 7817005859 🔥</div>
-</div>
-
-<p class="px-4 pt-4 font-bold text-[18px]">✨ Best Company Store - All Products</p>
-<p class="px-4 text-[11px] text-zinc-400">Syngenta • IFFCO • FMC • Bayer • UPL • Corteva • John • Sudaan Shakti</p>
-
-<!-- PRODUCTS GRID -->
-<div id="grid" class="grid grid-cols-2 gap-3 p-3">
-
-<!-- 1. SUDAAN SHAKTI HARI BORI - NO.1 SPECIAL -->
-<div class="prod bg-white rounded-[22px] overflow-hidden text-black border-[3px] border-green-500 col-span-2 shadow-2xl glow" data-name="sudaan shakti hari bori phospho extra super formula 50kg faslon ke liye sabse special result bolta hai 400 480 fasal formula best company">
-<div class="relative">
-<span class="absolute top-3 left-3 bg-red-600 text-white text-[11px] px-4 py-1.5 rounded-full font-black z-10">BEST SELLER • 16% OFF</span>
-<span class="absolute top-3 right-3 bg-black/80 text-white text-[10px] px-3 py-1 rounded-full">♥ 4.1k • ⭐ 4.9</span>
-<img src="sudaan-shakti-hari-bori.jpg" onerror="this.src='https://images.unsplash.com/photo-1589923188900-85dae523342b?w=500'" class="w-full h-[320px] object-cover bg-white" alt="Sudaan Shakti">
-</div>
-<div class="p-4">
-<p class="font-black text-[18px] leading-5">🌿 Sudaan Shakti Phospho Extra Super Formula - Hari Bori 50kg</p>
-<p class="text-[12px] mt-2 text-zinc-600">Company: Sudaan Shakti Special • ⭐ 4.9 (4128 Reviews) • 200+ bought this month • 🚚 Free Delivery</p>
-<div class="flex gap-2 items-baseline mt-3">
-<b class="text-[28px] text-[#0a6e0a]">₹400</b><span class="line-through text-[15px] text-zinc-500">M.R.P. ₹480</span><span class="bg-green-100 text-green-700 text-[11px] px-2.5 py-1 rounded-full border font-bold">Save ₹80</span>
-</div>
-<p class="text-[13px] font-black mt-2 text-green-700">✓ In Stock at Amandeep Krishi Behat • Result Bolta Hai 🔥 • Fasal Formula</p>
-</div>
-<button onclick="orderNow('Sudaan Shakti Hari Bori 50kg Rs 400 - Faslon Ke Liye Sabse Special - Result Bolta Hai')" class="w-full bg-gradient-to-r from-green-700 to-green-600 text-white py-4 font-black text-[14px]">🛒 WhatsApp पर ऑर्डर करें - ₹400</button>
-</div>
-
-<!-- 2. SYNGENTA AMPLIGO 100ML - NO.1 DAWAI -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border-[2px] border-green-400" data-name="syngenta ampligo 100ml 950 sijen ta best lashkari thrips">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/3/293693030/QM/UP/SA/199692614/ampligo-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2 bg-white" alt="Syngenta Ampligo">
-<div class="p-3"><p class="font-bold text-[12px]">🏆 Syngenta Ampligo 100ml</p><p class="text-[10px] text-zinc-500">Syngenta Swiss • ⭐ 4.9 (3.2k) • Lashkari+Thrips Ramban</p><div class="flex gap-2 mt-1"><b class="text-[17px] text-green-700">₹950</b><span class="line-through text-[11px]">₹1150</span></div></div>
-<button onclick="orderNow('Syngenta Ampligo 100ml 950')" class="w-full bg-green-600 text-white py-3 text-[11px] font-bold">Syngenta Order</button>
-</div>
-
-<!-- 3. SYNGENTA AMISTAR TOP 200ML -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border border-yellow-300" data-name="syngenta amistar top 200ml 1650 fungicide jhulsa best">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/9/345016316/GP/JG/RB/199692614/amistar-top-fungicide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Amistar Top">
-<div class="p-3"><p class="font-bold text-[11px]">🏆 Syngenta Amistar Top 200ml</p><p class="text-[10px]">Best Fungicide • ⭐ 4.9 • Jhulsa Ramban</p><b class="text-[16px]">₹1650</b></div>
-<button onclick="orderNow('Syngenta Amistar Top 1650')" class="w-full bg-yellow-500 text-black py-3 text-[11px] font-bold">Order Best Fungus</button>
-</div>
-
-<!-- 4. JOHN SARSON SUPER GOLD 5KG -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border-2 border-yellow-400" data-name="john company sarson beej super gold 5kg 920 best company beej 45% oil">
-<img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500" class="w-full h-48 object-cover" alt="John Sarson">
-<div class="p-3"><p class="font-bold text-[12px]">🌻 John Super Gold Sarson 5kg - Best Beej</p><p class="text-[10px]">⭐ 4.9 (1.5k) • 45% Oil • Company: John</p><b class="text-green-700 text-[17px]">₹920</b> <span class="line-through text-[11px] text-zinc-500">₹1050</span></div>
-<button onclick="orderNow('John Sarson Super Gold 5kg 920')" class="w-full bg-yellow-400 text-black py-3 text-[11px] font-bold">Best Beej Order</button>
-</div>
-
-<!-- 5. IFFCO DAP 50KG - BEST COMPANY -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border border-green-200" data-name="iffco dap 50kg 1350 1400 best company kisan">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/6/316665702/EM/NS/OW/199692614/dap-fertilizer-500x500.jpg" class="w-full h-48 object-contain p-2 bg-white" alt="IFFCO DAP">
-<div class="p-3"><p class="font-bold text-[12px]">🏆 IFFCO DAP 50kg - Best Company</p><p class="text-[10px] text-zinc-500">IFFCO No.1 • ⭐ 4.8 (5.2k)</p><b class="text-[16px]">₹1350</b> <span class="line-through text-[11px]">₹1400</span></div>
-<button onclick="orderNow('IFFCO DAP 50kg 1350 Best')" class="w-full bg-green-700 text-white py-3 text-[11px] font-bold">Order IFFCO</button>
-</div>
-
-<!-- 6. URIYA PEELI BORI 45KG -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black" data-name="uriya urea peeli bori iffco kribhco 45kg 280 best">
-<img src="https://5.imimg.com/data5/SELLER/Default/2022/9/LN/GL/DM/155864477/urea-fertilizer-500x500.jpg" class="w-full h-48 object-contain bg-[#fffde7] p-2" alt="Urea">
-<div class="p-3"><p class="font-bold text-[12px]">Uriya Peeli Bori 45kg - Best Urea</p><p class="text-[10px]">IFFCO/KRIBHCO • ⭐ 4.7 • 46% N</p><b class="text-green-700 text-[17px]">₹280</b></div>
-<button onclick="orderNow('Uriya Peeli Bori 45kg 280')" class="w-full bg-green-700 text-white py-3 text-[11px] font-bold">Order Best Urea</button>
-</div>
-
-<!-- 7. FMC CORAGEN 60ML - BEST COMPANY -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border border-red-200" data-name="fmc coragen 60ml 901 1100 best company tana chedak usa">
-<img src="https://5.imimg.com/data5/SELLER/Default/2021/9/UY/VJ/QT/125514/coragen-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Coragen">
-<div class="p-3"><p class="font-bold text-[11px]">🔥 FMC Coragen 60ml - Best USA Company</p><p class="text-[10px]">FMC USA • ⭐ 4.9 (8k) • Tana Chedak</p><b>₹901</b> <span class="line-through text-[11px]">₹1100</span></div>
-<button onclick="orderNow('FMC Coragen 60ml 901 Best')" class="w-full bg-red-600 text-white py-3 text-[11px] font-bold">Best Dawai Order</button>
-</div>
-
-<!-- 8. SYNGENTA VIRTako 100GM -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black" data-name="syngenta virtako 100gm 1250 dhan ganna best">
-<img src="https://5.imimg.com/data5/SELLER/Default/2022/8/BO/MU/KW/44834577/syngenta-virtako-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Virtako">
-<div class="p-3"><p class="font-bold text-[11px]">🏆 Syngenta Virtako 100gm</p><p class="text-[10px]">Dhan+Ganna • ⭐ 4.8 • Best Tana Chedak</p><b>₹1250</b></div>
-<button onclick="orderNow('Syngenta Virtako 100gm 1250')" class="w-full bg-black text-white py-3 text-[11px] font-bold">Syngenta Order</button>
-</div>
-
-<!-- 9. SYNGENTA QUANTIS 1LTR - FASAL BADHANE WALA -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border-2 border-green-300 col-span-2" data-name="syngenta quantis 1ltr 1200 fasal badhane wala growth garmi bachao best">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/9/344928793/UB/SF/UP/199692614/syngenta-quantis-plant-growth-regulator-500x500.jpg" class="w-full h-56 object-contain p-3 bg-[#f0fdf4]" alt="Quantis">
-<div class="p-3"><p class="font-bold text-[13px]">🌱 Syngenta Quantis 1Ltr - Fasal Badhane Wala Special</p><p class="text-[11px]">Syngenta Special • Yield 15% Badhao • ⭐ 4.9</p><div class="flex gap-2 mt-1"><b class="text-[18px] text-green-700">₹1200</b><span class="line-through text-[12px]">₹1400</span></div></div>
-<button onclick="orderNow('Syngenta Quantis 1Ltr 1200 - Fasal Badhane Wala')" class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 font-bold">🌱 Syngenta Best Order</button>
-</div>
-
-<!-- 10. BAYER FAME 100ML -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black" data-name="bayer fame 100ml 1250 best company germany">
-<img src="https://5.imimg.com/data5/SELLER/Default/2022/12/UZ/WC/VS/184348080/bayer-fame-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Bayer Fame">
-<div class="p-3"><p class="font-bold text-[11px]">🏆 Bayer Fame 100ml - Best</p><p class="text-[10px]">Bayer Germany • ⭐ 4.8</p><b>₹1250</b></div>
-<button onclick="orderNow('Bayer Fame 100ml 1250')" class="w-full bg-blue-600 text-white py-3 text-[11px] font-bold">Order Bayer</button>
-</div>
-
-<!-- 11. SYNGENTA RIDOMIL GOLD 250GM -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border border-blue-200" data-name="syngenta ridomil gold 250gm 750 jhulsa best">
-<img src="https://5.imimg.com/data5/SELLER/Default/2022/6/HF/UG/XY/44834577/syngenta-ridomil-gold-fungicide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Ridomil Gold">
-<div class="p-3"><p class="font-bold text-[11px]">🏆 Syngenta Ridomil Gold 250gm</p><p class="text-[10px]">Best Jhulsa • ⭐ 4.9</p><b>₹750</b></div>
-<button onclick="orderNow('Syngenta Ridomil Gold 750')" class="w-full bg-blue-600 text-white py-3 text-[11px] font-bold">Order Best</button>
-</div>
-
-<!-- 12. PROFENO PLUS 1LTR -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black" data-name="profeno plus cypher 1ltr 650 820 best combo lashkari ramban">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/10/353543717/KO/EX/OO/200864614/profenofos-40-cypermethrin-4-ec-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Profeno">
-<div class="p-3"><p class="font-bold text-[11px]">Profeno Plus Cypher 1Ltr - Best Combo</p><p class="text-[10px]">⭐ 4.7 • Best Lashkari</p><b class="text-green-700">₹650</b> <span class="line-through text-[11px]">₹820</span></div>
-<button onclick="orderNow('Profeno Plus Cypher 650')" class="w-full bg-black text-white py-3 text-[11px] font-bold">Order</button>
-</div>
-
-<!-- 13. CORTEVA DELEGATE -->
-<div class="prod bg-white rounded-[20px] overflow-hidden text-black border border-purple-200" data-name="corteva delegate 100ml 1800 thrips best usa">
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/9/343836524/MF/PZ/WH/199692614/corteva-delegate-insecticide-500x500.jpg" class="w-full h-48 object-contain p-2" alt="Delegate">
-<div class="p-3"><p class="font-bold text-[11px]">🏆 Corteva Delegate 100ml - USA Best</p><p class="text-[10px]">Corteva USA • ⭐ 5.0 • Thrips Best</p><b>₹1800</b></div>
-<button onclick="orderNow('Corteva Delegate 100ml 1800')" class="w-full bg-purple-600 text-white py-3 text-[11px] font-bold">Order Corteva</button>
-</div>
-
-</div>
-
-<!-- BOTTOM MENU -->
-<div class="fixed bottom-0 left-0 right-0 bg-[#181818] border-t border-zinc-700 flex justify-around py-3 z-[100] rounded-t-[22px]">
-<div class="text-center"><i class="fa-solid fa-house text-green-500"></i><p class="text-[10px] text-green-500 font-bold">Home</p></div>
-<div class="text-center"><i class="fa-solid fa-store text-zinc-500"></i><p class="text-[10px]">Shop</p></div>
-<div class="text-center relative"><i class="fa-solid fa-cart-shopping text-zinc-500"></i><span class="absolute -top-2 -right-2 bg-red-600 text-[9px] px-1.5 py-0.5 rounded-full font-bold">2</span><p class="text-[10px]">Cart</p></div>
-<div class="text-center"><i class="fa-solid fa-user text-zinc-500"></i><p class="text-[10px]">Account</p></div>
-</div>
-
-<!-- CONTACT BAR -->
-<div class="fixed bottom-[64px] left-0 right-0 bg-[#202124] p-2.5 flex gap-2 border-t border-zinc-700 z-[99]">
-<a href="tel:7817005859" class="flex-1 bg-[#303134] text-center py-3 rounded-full font-bold text-[12px] border border-zinc-600">📞 कॉल करो</a>
-<a href="https://wa.me/917817005859?text=Best Company Product Chahiye" class="flex-[2] bg-white text-black text-center py-3 rounded-full font-bold text-[13px]">WhatsApp Order</a>
-</div>
-
 <script>
-let t=8130; setInterval(()=>{t--; let h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60; document.getElementById('timer').innerText=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;},1000);
-function orderNow(n){window.open("https://wa.me/917817005859?text=नमस्ते अमनदीप कृषि Behat 🙏%0AProduct: "+encodeURIComponent(n)+"%0ANaam:%0AGaon:%0A","_blank");}
-function filterProd(){let q=document.getElementById('searchBox').value.toLowerCase();document.querySelectorAll('.prod').forEach(c=>{c.style.display=c.getAttribute('data-name').includes(q)?'':'none';});}
+const products=[
+{name:"Sudaan Shakti Hari Bori 50kg",price:"Rs 400",mrp:"Rs 550",rating:"4.9 (1.2k Ratings • 450 Reviews)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",desc:"High nitrogen fertilizer for crops\\nImproves soil strength & yield\\nSuitable for all crops"},
+{name:"Hybrid Maize Seeds 1kg",price:"Rs 220",mrp:"Rs 300",rating:"4.5 (120)",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",desc:"High yield hybrid maize"},
+{name:"Insecticide SafeGuard 500ml",price:"Rs 185",mrp:"Rs 250",rating:"4.3 (98)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",desc:"Best insecticide"},
+{name:"Organic Compost 5kg",price:"Rs 150",mrp:"Rs 200",rating:"4.6 (210)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",desc:"Pure organic"},
+{name:"Spray Pump 5L",price:"Rs 650",mrp:"Rs 800",rating:"4.4 (76)",img:"https://images.unsplash.com/photo-1581147036324-c17ac41dfa3b?w=500",desc:"5L pump"},
+{name:"John Sarson Beej 1kg",price:"Rs 920",mrp:"Rs 1100",rating:"4.9 (850)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",desc:"Mustard seeds high yield"}
+];
+let cur=null,cart=0;const grid=document.getElementById('grid');
+function render(list){grid.innerHTML="";list.forEach((p,i)=>{grid.innerHTML+=`<div class="card" onclick="openD(${i})"><img src="${p.img}"><div class="card-body"><h3 style="font-size:12px;height:32px;overflow:hidden">${p.name}</h3><div class="price">${p.price} <span style="text-decoration:line-through;color:#888;font-size:11px">${p.mrp}</span></div><div style="font-size:11px">⭐ ${p.rating}</div></div></div>`})}
+render(products);
+function openD(i){cur=products[i];document.getElementById('dImg').src=cur.img;document.getElementById('dName').innerText=cur.name;document.getElementById('dPrice').innerText=cur.price;document.getElementById('dRate').innerText=cur.rating;document.getElementById('dDesc').innerText=cur.desc;document.getElementById('detail').classList.add('show')}
+function closeD(){document.getElementById('detail').classList.remove('show')}
+function sel(e){document.querySelectorAll('.sz').forEach(s=>s.classList.remove('active'));e.classList.add('active')}
+function addCart(){cart++;document.getElementById('c').innerText=cart;alert('Cart me add!')}
+function buy(){let m=`Namaste Amandeep Krishi Seva Kendra Behat, Mujhe ${cur.name} - ${cur.price} chahiye`;window.open(`https://wa.me/917817005859?text=${m}`,'_blank')}
+function filter(){let q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.name.toLowerCase().includes(q)))}
 </script>
 </body>
 </html>
