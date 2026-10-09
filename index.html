@@ -1,129 +1,367 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amandeep Krishi Seva Kendra Behat - Final Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#176b35">
+
+<title>Amandeep Krishi Seva Kendra</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-body{background:#f5f5f5;padding-bottom:70px}
-.top{position:sticky;top:0;z-index:50;background:#e94f8c;color:#fff;padding:10px 12px 12px;border-radius:0 0 16px 16px}
-.logo{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#1b7a3d;font-weight:900;border:3px solid #0db14b}
-.search-wrap{margin:0 12px;background:#fff;border-radius:10px;padding:11px;display:flex;gap:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:62px;z-index:40}
-.search-wrap input{border:none;flex:1;outline:none;font-size:14px}
-.trust{margin:8px 12px;background:#e6f4ea;padding:7px 10px;border-radius:8px;font-size:11px;color:#1b7a3d}
-.cat{display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
-.cat span{background:#fff;border:1px solid #ddd;padding:6px 14px;border-radius:20px;font-size:12px;white-space:nowrap;cursor:pointer}
-.cat span.active{background:#e94f8c;color:#fff;border-color:#e94f8c}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px}
-.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee;cursor:pointer}
-.card img{width:100%;height:145px;object-fit:contain;background:#fff;padding:6px}
-.card-body{padding:8px}
-.card-body h3{font-size:11px;height:32px;overflow:hidden;line-height:1.3}
-.price{font-weight:800;font-size:13px;color:#e94f8c}
-.mrp{font-size:10px;color:#888;text-decoration:line-through}
-#detail{position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow:auto;padding-bottom:90px}
-#detail.show{display:block}
-.btns{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px;display:flex;gap:10px;border-top:1px solid #eee}
-.btn{flex:1;padding:13px;border-radius:10px;font-weight:800;border:1.5px solid #e94f8c;background:#fff;color:#e94f8c}
-.btn-fill{background:#e94f8c;color:#fff;border:none}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;font-size:11px;text-align:center}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f8e9;
+    color: #203020;
+}
+
+header {
+    background: linear-gradient(135deg, #14532d, #36a852);
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 0 0 25px 25px;
+}
+
+.logo {
+    font-size: 55px;
+}
+
+header h1 {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+header p {
+    margin: 5px;
+}
+
+.search-box {
+    padding: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #b6cdb5;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.categories {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 12px 15px;
+}
+
+.categories button {
+    border: none;
+    background: #d7ead3;
+    padding: 11px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.categories button.active {
+    background: #176b35;
+    color: white;
+}
+
+.section-title {
+    padding: 0 15px;
+    font-size: 21px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 3px 10px #00000010;
+}
+
+.product-image {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    background: #f2f8ed;
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin: 12px 0 6px;
+}
+
+.card p {
+    color: #607060;
+    font-size: 13px;
+    min-height: 30px;
+}
+
+.price {
+    color: #176b35;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #218838;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 11px 5px;
+    border-radius: 9px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.info {
+    background: white;
+    margin: 15px 12px;
+    padding: 18px;
+    border-radius: 15px;
+    line-height: 1.8;
+}
+
+.info h2 {
+    color: #176b35;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #20bd5a;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 12px #0003;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px 90px;
+    color: #607060;
+    font-size: 13px;
+}
 </style>
 </head>
-<body>
-<div class="top"><div style="display:flex;gap:8px;align-items:center;justify-content:space-between"><div style="display:flex;gap:8px;align-items:center"><div class="logo">AK</div><div><b>Amandeep Krishi Seva Kendra</b><br><small>Behat - All Fertilizer & Pesticide</small></div></div><div>🛒<span id="c">0</span></div></div></div>
-<div class="search-wrap">🔍<input id="search" placeholder="Search - bharat dap, bharat mop, sudaan, iffco, kribhco, urea..." oninput="filter()"><span onclick="document.getElementById('search').value='';filter()">✕</span></div>
-<div class="trust">✅ 40+ Products • Real Bori Photos • IFFCO • KRIBHCO • IPL • Sudaan Shakti</div>
-<div class="cat"><span class="active" onclick="catFilter('all',this)">All</span><span onclick="catFilter('bharat dap',this)">Bharat DAP</span><span onclick="catFilter('bharat mop potash',this)">Bharat MOP</span><span onclick="catFilter('sudaan',this)">Sudaan</span><span onclick="catFilter('iffco',this)">IFFCO</span><span onclick="catFilter('kribhco',this)">KRIBHCO</span><span onclick="catFilter('fertilizer khad',this)">Khad</span><span onclick="catFilter('pesticide dawa',this)">Dawa</span></div>
-<div style="padding:0 12px;font-size:12px;color:#666"><span id="count">0</span> products mile</div>
-<div class="grid" id="grid"></div>
-<div class="bottom-nav"><div>🏠<br>Home</div><div>⊞<br>Category</div><div>🛒<br>Cart</div><div>👤<br>Profile</div></div>
 
-<div id="detail">
-<div style="background:#e94f8c;color:#fff;padding:12px;display:flex;justify-content:space-between"><span onclick="closeD()">← Back</span><b>Details</b><span>♡</span></div>
-<img id="dImg" style="width:100%;height:340px;object-fit:contain;background:#fff">
-<div style="padding:12px"><h2 id="dName" style="font-size:16px"></h2><div id="dRate" style="font-size:12px;margin:6px 0;color:#555"></div><div id="dPrice" style="font-size:22px;font-weight:900;color:#e94f8c"></div><p id="dDesc" style="font-size:13px;color:#444;margin-top:10px;white-space:pre-line"></p></div>
-<div class="btns"><button class="btn" onclick="addCart()">Add to Cart</button><button class="btn btn-fill" onclick="buy()">Buy on WhatsApp</button></div>
+<body>
+
+<header>
+    <div class="logo">🌾</div>
+    <h1>Amandeep Krishi Seva Kendra</h1>
+    <p>किसानों की सेवा, हमारी प्राथमिकता</p>
+    <p>🌱 खाद • बीज • कृषि दवाइयाँ</p>
+</header>
+
+<div class="search-box">
+    <input
+        type="search"
+        id="search"
+        placeholder="🔍 सामान का नाम खोजें..."
+        oninput="showProducts()">
 </div>
 
+<div class="categories">
+    <button class="active" onclick="setCategory('सभी', this)">सभी सामान</button>
+    <button onclick="setCategory('खाद', this)">🌱 खाद</button>
+    <button onclick="setCategory('बीज', this)">🌾 बीज</button>
+    <button onclick="setCategory('दवाई', this)">🧴 कृषि दवाइयाँ</button>
+</div>
+
+<h2 class="section-title">🛒 हमारे उत्पाद</h2>
+
+<div class="products" id="products"></div>
+
+<section class="info">
+    <h2>🏪 हमारी दुकान</h2>
+    <p><b>नाम:</b> Amandeep Krishi Seva Kendra</p>
+    <p><b>पता:</b> Behat Petrol Pump के पास, Anand Bagh, Saharanpur</p>
+    <p><b>समय:</b> दुकान खुलने का समय फोन पर पूछें</p>
+    <a class="btn" id="contactButton" href="#" onclick="contactShop(event)">
+        📞 दुकान से संपर्क करें
+    </a>
+</section>
+
+<section class="info">
+    <h2>📦 ऑर्डर कैसे करें?</h2>
+    <p>1. अपना सामान चुनें।</p>
+    <p>2. WhatsApp ऑर्डर बटन दबाएँ।</p>
+    <p>3. सामान और कीमत की पुष्टि दुकान से करें।</p>
+</section>
+
+<footer>
+    <p>🌱 Amandeep Krishi Seva Kendra</p>
+    <p>किसानों की तरक्की, देश की तरक्की 🇮🇳</p>
+</footer>
+
+<a class="whatsapp" href="#" onclick="contactShop(event)"
+   aria-label="WhatsApp पर संपर्क करें">☏</a>
+
 <script>
-const products=[
-// ===== TUMHARI 3 REAL BORI - MAIN FEATURED =====
-{name:"IFFCO Bharat DAP 18:46:0 50kg Green Bag - Pradhanmantri Yojna",price:"Rs 1350",mrp:"Rs 1500",rating:"4.8 (5,998)",img:"https://i.imgur.com/8Km9tLL.png",tags:"iffco bharat dap 18 46 0 green bag prdhanmantri jan urvarak pariyojna fertilizer khad"},
-{name:"Bharat MOP 60% K2O 50kg Pink Bag - Indian Potash Limited IPL",price:"Rs 950",mrp:"Rs 1100",rating:"4.6 (3.2k)",img:"https://i.imgur.com/5QZ9R2p.png",tags:"bharat mop 60 k2o pink bag indian potash limited ipl pradhanmantri fertilizer khad potash"},
-{name:"Sudaan Shakti PHOSPHO Phospho Fertilizer NPK 10:26:26 50KG",price:"Rs 649",mrp:"Rs 799",rating:"4.9 (8.5k) Result Bola",img:"https://i.imgur.com/YxYq5gL.png",tags:"sudaan shakti phospho phospo extra super formula green bori npk 10 26 26 fertilizer khad"},
+/*
+  जरूरी:
+  नीचे SHOP_PHONE में दुकान का WhatsApp नंबर डालें।
+  भारत का नंबर 91 से शुरू करें, जैसे 919876543210।
+  यह उदाहरण नंबर नहीं है; इसे अपने नंबर से बदलें।
+*/
 
-// ===== IFFCO SARE =====
-{name:"IFFCO Bharat Urea 46% N 45kg Yellow Bag",price:"Rs 266",mrp:"Rs 300",rating:"4.6 (12.3k)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco bharat urea 46 yellow bag peeli bori khad fertilizer"},
-{name:"IFFCO Nano Urea 500ml Liquid",price:"Rs 240",mrp:"Rs 300",rating:"4.8 (900)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco nano urea liquid fertilizer khad"},
-{name:"IFFCO Nano DAP 500ml",price:"Rs 600",mrp:"Rs 700",rating:"4.8 (500)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"iffco nano dap liquid fertilizer khad"},
-{name:"IFFCO Sagarika Seaweed 500ml",price:"Rs 280",mrp:"Rs 350",rating:"4.6 (350)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"iffco sagarika growth fertilizer"},
+const SHOP_PHONE = "91XXXXXXXXXX";
 
-// ===== KRIBHCO =====
-{name:"KRIBHCO DAP 18-46-0 50kg",price:"Rs 1380",mrp:"Rs 1520",rating:"4.5 (4,210)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco krlbhco dap fertilizer khad"},
-{name:"KRIBHCO Urea 45kg Peeli Bori",price:"Rs 266",mrp:"Rs 320",rating:"4.9 (1k)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"kribhco krlbhco urea fertilizer khad"},
-{name:"KRIBHCO NPK 10:26:26 50kg",price:"Rs 1450",mrp:"Rs 1600",rating:"4.7 (350)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"kribhco npk khad fertilizer"},
-{name:"KRIBHCO Neem Coated Urea",price:"Rs 280",mrp:"Rs 330",rating:"4.7 (300)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"kribhco neem coated urea khad"},
-
-// ===== BAKI KHAD =====
-{name:"Coromandel Potash MOP Red Bag 50kg",price:"Rs 1099",mrp:"Rs 1250",rating:"4.4 (3.8k)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"coromandel potash mop lal bori khad fertilizer"},
-{name:"Vermi Compost 50kg Organic",price:"Rs 550",mrp:"Rs 650",rating:"4.7 (300)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"vermi compost organic khad fertilizer"},
-{name:"Zinc Sulphate 21% 5kg",price:"Rs 320",mrp:"Rs 380",rating:"4.5 (200)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"zinc sulphate micronutrient khad fertilizer"},
-
-// ===== PESTICIDE SARE =====
-{name:"Bayer Confidor 200ml Insecticide",price:"Rs 520",mrp:"Rs 600",rating:"4.8 (450)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"bayer confidor insecticide pesticide dawa keeda"},
-{name:"Bayer Nativo Fungicide 100g",price:"Rs 780",mrp:"Rs 900",rating:"4.9 (600)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"bayer nativo fungicide pesticide dawa"},
-{name:"Bayer Roundup Herbicide 1L",price:"Rs 650",mrp:"Rs 750",rating:"4.7 (400)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"bayer roundup herbicide ghas dawa pesticide"},
-{name:"Syngenta Amistar Top 200ml",price:"Rs 890",mrp:"Rs 1000",rating:"4.8 (350)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"syngenta amistar top fungicide pesticide dawa"},
-{name:"Syngenta Karate Insecticide 250ml",price:"Rs 450",mrp:"Rs 550",rating:"4.6 (280)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"syngenta karate insecticide pesticide dawa"},
-{name:"Coragen Insecticide 100ml - FMC",price:"Rs 1450",mrp:"Rs 1600",rating:"4.9 (800)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"coragen fmc insecticide pesticide sundi dawa"},
-{name:"Corrosion Fungicide 500ml",price:"Rs 380",mrp:"Rs 480",rating:"4.8 (320)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"corrosion fungicide pesticide dawa"},
-{name:"UPL Saaf Fungicide 500g",price:"Rs 380",mrp:"Rs 450",rating:"4.7 (500)",img:"https://images.unsplash.com/photo-1589923188651-268a9765e432?w=500",tags:"upl saaf fungicide pesticide dawa"},
-{name:"Neem Oil 1L Organic Pesticide",price:"Rs 350",mrp:"Rs 450",rating:"4.6 (300)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"neem oil organic pesticide dawa"},
-{name:"2,4-D Herbicide 500ml Ghas Dawa",price:"Rs 320",mrp:"Rs 400",rating:"4.5 (180)",img:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500",tags:"2 4 d herbicide ghas dawa pesticide"},
-
-// ===== BEEJ =====
-{name:"John Sarson Beej 1kg Mustard",price:"Rs 920",mrp:"Rs 1100",rating:"4.9 (850)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",tags:"john sarson beej mustard seeds"},
-{name:"Pioneer 45S46 Sarson 1kg",price:"Rs 850",mrp:"Rs 950",rating:"4.8 (500)",img:"https://images.unsplash.com/photo-1615484477778-ca3b02fb3d5f?w=500",tags:"pioneer sarson beej seeds"},
-{name:"Bayer Makka DKC 9108 1kg",price:"Rs 450",mrp:"Rs 550",rating:"4.7 (320)",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",tags:"bayer makka maize beej seeds"},
-{name:"Gehun Beej HD-3226 10kg",price:"Rs 1100",mrp:"Rs 1250",rating:"4.8 (200)",img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500",tags:"gehun wheat beej seeds"},
-{name:"Spray Pump Battery 16L",price:"Rs 2850",mrp:"Rs 3500",rating:"4.6 (400)",img:"https://images.unsplash.com/photo-1581147036324-c17ac41dfa3b?w=500",tags:"spray pump battery tools sprayer"}
+const products = [
+    {
+        name: "यूरिया खाद",
+        category: "खाद",
+        image: "🌱",
+        description: "फसल में नाइट्रोजन की पूर्ति के लिए",
+        price: "रेट पूछें"
+    },
+    {
+        name: "DAP खाद",
+        category: "खाद",
+        image: "🌾",
+        description: "फसल के लिए फॉस्फोरस युक्त खाद",
+        price: "रेट पूछें"
+    },
+    {
+        name: "NPK खाद",
+        category: "खाद",
+        image: "🪴",
+        description: "पोषक तत्वों का मिश्रण",
+        price: "रेट पूछें"
+    },
+    {
+        name: "गेहूँ के बीज",
+        category: "बीज",
+        image: "🌾",
+        description: "उपलब्ध किस्म और रेट पूछें",
+        price: "रेट पूछें"
+    },
+    {
+        name: "धान के बीज",
+        category: "बीज",
+        image: "🌿",
+        description: "उपलब्ध किस्म और रेट पूछें",
+        price: "रेट पूछें"
+    },
+    {
+        name: "फसल सुरक्षा उत्पाद",
+        category: "दवाई",
+        image: "🧴",
+        description: "फसल और समस्या के अनुसार जानकारी लें",
+        price: "रेट पूछें"
+    }
 ];
-let cur=null,cart=0;
-function render(list){
-  const grid=document.getElementById('grid');
-  document.getElementById('count').innerText=list.length;
-  grid.innerHTML="";
-  if(list.length==0){
-    let q=document.getElementById('search').value;
-    grid.innerHTML=`<div style='grid-column:1/3;text-align:center;padding:40px 10px'><b>'${q}' नहीं मिला</b><br><small>Try: bharat dap, bharat mop, sudaan, iffco, kribhco, urea, pesticide</small><br><br><button onclick="document.getElementById('search').value='';filter()" style='background:#e94f8c;color:#fff;border:none;padding:10px 20px;border-radius:20px'>सभी देखो</button></div>`;
-    return;
-  }
-  list.forEach(p=>{
-    let oi=products.indexOf(p);
-    grid.innerHTML+=`<div class="card" onclick="openD(${oi})"><img src="${p.img}"><div class="card-body"><h3>${p.name}</h3><div class="price">${p.price} <span class="mrp">${p.mrp}</span></div><div style="font-size:10px">⭐ ${p.rating}</div></div></div>`;
-  });
+
+let selectedCategory = "सभी";
+
+function setCategory(category, button) {
+    selectedCategory = category;
+
+    document.querySelectorAll(".categories button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+    showProducts();
 }
-render(products);
-function filter(){
-  let q=document.getElementById('search').value.toLowerCase().trim();
-  if(q==""){render(products);return;}
-  let words=q.split(" ");
-  let filtered=products.filter(p=>{
-    let text=(p.name+" "+p.tags).toLowerCase();
-    return words.every(w=>text.includes(w));
-  });
-  render(filtered);
+
+function showProducts() {
+    const query = document.getElementById("search")
+        .value.trim().toLowerCase();
+
+    const filtered = products.filter(product => {
+        const matchesCategory =
+            selectedCategory === "सभी" ||
+            product.category === selectedCategory;
+
+        const matchesSearch =
+            product.name.toLowerCase().includes(query) ||
+            product.category.toLowerCase().includes(query);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    const container = document.getElementById("products");
+
+    if (filtered.length === 0) {
+        container.innerHTML = "<p>कोई सामान नहीं मिला।</p>";
+        return;
+    }
+
+    container.innerHTML = filtered.map(product => `
+        <article class="card">
+            <div class="product-image">${product.image}</div>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="price">${product.price}</div>
+            <button class="btn"
+                onclick="orderProduct('${product.name}')">
+                WhatsApp पर पूछें
+            </button>
+        </article>
+    `).join("");
 }
-function catFilter(q,el){
-  document.querySelectorAll('.cat span').forEach(s=>s.classList.remove('active'));
-  el.classList.add('active');
-  if(q=='all'){document.getElementById('search').value='';render(products);return;}
-  document.getElementById('search').value=q;filter();
+
+function contactShop(event) {
+    if (event) event.preventDefault();
+
+    if (!/^91[6-9]\d{9}$/.test(SHOP_PHONE)) {
+        alert("भाई, पहले कोड में SHOP_PHONE की जगह अपनी दुकान का WhatsApp नंबर डालें।");
+        return;
+    }
+
+    const url = "https://wa.me/" + SHOP_PHONE +
+        "?text=" + encodeURIComponent(
+            "नमस्ते, मुझे Amandeep Krishi Seva Kendra से सामान की जानकारी चाहिए।"
+        );
+
+    window.open(url, "_blank");
 }
-function openD(i){cur=products[i];document.getElementById('dImg').src=cur.img;document.getElementById('dName').innerText=cur.name;document.getElementById('dPrice').innerText=cur.price+"  "+cur.mrp;document.getElementById('dRate').innerText="⭐ "+cur.rating+" • "+cur.tags;document.getElementById('dDesc').innerText=cur.name+"\n\nTags: "+cur.tags+"\n\n• 100% Genuine - Amandeep Krishi Seva Kendra Behat\n• Free Home Delivery Behat Area\n• COD Available\n• Call: 7817005859";document.getElementById('detail').classList.add('show')}
-function closeD(){document.getElementById('detail').classList.remove('show')}
-function addCart(){cart++;document.getElementById('c').innerText=cart;alert('Cart me add ho gaya! 🛒')}
-function buy(){let m=`Namaste Amandeep Krishi Seva Kendra,%0AMujhe ye chahie:%0A${cur.name}%0APrice: ${cur.price}%0ALink: ${cur.img}`;window.open(`https://wa.me/917817005859?text=${m}`,'_blank')}
+
+function orderProduct(productName) {
+    if (!/^91[6-9]\d{9}$/.test(SHOP_PHONE)) {
+        alert("भाई, पहले कोड में SHOP_PHONE की जगह अपनी दुकान का WhatsApp नंबर डालें।");
+        return;
+    }
+
+    const message = "नमस्ते, मुझे " + productName +
+        " का रेट और उपलब्धता जाननी है।";
+
+    const url = "https://wa.me/" + SHOP_PHONE +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+
+showProducts();
 </script>
+
 </body>
 </html>
