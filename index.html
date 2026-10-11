@@ -3,172 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#176b37">
 <title>Amandeep Krishi Seva Kendra</title>
 
 <style>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f6f3;
-  color: #203126;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: #f2f8f3;
+  color: #173b29;
+  padding-bottom: 80px;
 }
 
 header {
-  background: linear-gradient(135deg, #104b28, #2c914e);
+  background: linear-gradient(135deg, #006b35, #009447);
   color: white;
-  padding: 22px 16px;
-  border-radius: 0 0 25px 25px;
+  padding: 20px 15px;
+  border-radius: 0 0 24px 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
-  font-size: 28px;
+  width: 58px;
+  height: 58px;
+  background: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
 }
 
-header h1 {
-  margin: 8px 0;
-  font-size: 25px;
+.brand h1 {
+  font-size: 20px;
+  line-height: 1.3;
 }
 
-header p {
-  line-height: 1.6;
+.brand p {
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-.search-box {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  margin-top: 12px;
-  font-size: 16px;
-}
-
-.categories {
+.search {
   display: flex;
   gap: 8px;
-  overflow-x: auto;
-  padding: 15px 0;
+  padding: 14px;
 }
 
-.categories button {
-  border: 1px solid #d5e4d7;
-  background: white;
-  padding: 10px 14px;
-  border-radius: 25px;
-  white-space: nowrap;
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #d4e5d9;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.search button,
+.green-btn {
+  background: #007b3e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
   cursor: pointer;
 }
 
-.categories button.active {
-  background: #176b37;
-  color: white;
+.banner {
+  margin: 0 14px 18px;
+  padding: 24px 18px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #d7f2c9, #fff4c8);
 }
 
-main {
-  padding: 15px;
-  max-width: 1000px;
-  margin: auto;
+.banner h2 {
+  font-size: 25px;
+  color: #075b30;
+  margin-bottom: 8px;
 }
 
-.heading {
-  font-size: 22px;
-  margin: 15px 0;
+.banner p {
+  line-height: 1.6;
+}
+
+.section-title {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 8px;
+}
+
+.category {
+  background: white;
+  border: 1px solid #dcebe0;
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px 3px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.category span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 6px;
 }
 
 .products {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-}
-
-.product {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px #0000000d;
-  border: 1px solid #e5ebe5;
-}
-
-.product img {
-  width: 100%;
-  height: 170px;
-  object-fit: contain;
-  padding: 8px;
-  background: #f8faf7;
-}
-
-.product-info {
   padding: 12px;
 }
 
-.product h3 {
-  font-size: 15px;
-  margin: 0 0 8px;
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #dcebe0;
+  box-shadow: 0 2px 7px #163e2510;
 }
 
-.category {
-  color: #238044;
+.product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.card p {
   font-size: 12px;
-  font-weight: bold;
+  color: #52675a;
+  line-height: 1.5;
+  min-height: 36px;
 }
 
 .price {
-  margin: 10px 0;
-  font-size: 14px;
   font-weight: bold;
-}
-
-button {
-  cursor: pointer;
-}
-
-.ask-btn {
-  background: #176b37;
-  color: white;
-  border: none;
-  width: 100%;
-  padding: 11px 5px;
-  border-radius: 9px;
-  font-weight: bold;
-}
-
-.services {
-  background: white;
-  padding: 17px;
-  border-radius: 16px;
-  line-height: 1.8;
-  margin-top: 25px;
-}
-
-.notice {
-  background: #fff5d7;
-  padding: 12px;
-  border-radius: 12px;
+  margin: 8px 0;
   font-size: 13px;
-  line-height: 1.6;
-  margin-top: 15px;
+}
+
+.card button {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 13px;
+}
+
+.features {
+  background: #e1f4e5;
+  margin: 12px;
+  padding: 15px;
+  border-radius: 15px;
+  line-height: 2;
+  font-size: 13px;
 }
 
 footer {
-  text-align: center;
-  background: #104b28;
+  background: #005b30;
   color: white;
-  padding: 22px 12px;
-  margin-top: 25px;
+  text-align: center;
+  padding: 18px 12px;
   line-height: 1.8;
+  font-size: 13px;
 }
 
-@media (min-width: 650px) {
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  border-top: 1px solid #dce8df;
+  padding: 10px 2px;
+  z-index: 10;
+}
+
+.bottom-nav button {
+  border: none;
+  background: transparent;
+  color: #245b3c;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.bottom-nav span {
+  display: block;
+  font-size: 21px;
+  margin-bottom: 3px;
+}
+
+.notice {
+  font-size: 11px;
+  color: #52675a;
+  padding: 8px 14px;
+}
+
+@media (min-width: 700px) {
   .products {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .product img {
-    height: 220px;
+  main {
+    max-width: 900px;
+    margin: auto;
   }
 }
 </style>
@@ -177,238 +243,247 @@ footer {
 <body>
 
 <header>
-  <div class="logo">🌱 किसान सेवा</div>
-
-  <h1>Amandeep Krishi Seva Kendra</h1>
-
-  <p>
-    किसानों के लिए कृषि उत्पादों का ऑनलाइन कैटलॉग।
-    अपने पसंदीदा उत्पाद खोजें और दुकान से कीमत पूछें।
-  </p>
-
-  <input
-    type="search"
-    id="search"
-    class="search-box"
-    placeholder="🔍 उत्पाद का नाम खोजें..."
-  >
+  <div class="brand">
+    <div class="logo">🌾</div>
+    <div>
+      <h1>Amandeep<br>Krishi Seva Kendra</h1>
+      <p>किसानों की सेवा • सही जानकारी • भरोसेमंद दुकान</p>
+    </div>
+  </div>
 </header>
 
+<div class="search">
+  <input id="searchInput"
+         type="search"
+         placeholder="प्रोडक्ट का नाम खोजें..."
+         oninput="renderProducts()">
+  <button onclick="renderProducts()">🔍</button>
+</div>
+
 <main>
-
-  <div class="categories">
-    <button class="active" onclick="filterCategory('all', this)">
-      सभी उत्पाद
-    </button>
-
-    <button onclick="filterCategory('कीटनाशक', this)">
-      कीटनाशक
-    </button>
-
-    <button onclick="filterCategory('फफूंदनाशक', this)">
-      फफूंदनाशक
-    </button>
-
-    <button onclick="filterCategory('अन्य', this)">
-      अन्य उत्पाद
-    </button>
-  </div>
-
-  <h2 class="heading">🛍️ हमारे उत्पाद</h2>
-
-  <div class="products" id="products">
-
-    <div class="product"
-         data-category="कीटनाशक"
-         data-name="shriram benzo">
-
-      <img src="benzo.jpg" alt="SHRIRAM BENZO"
-           onerror="this.alt='BENZO फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">कीटनाशक</span>
-        <h3>SHRIRAM BENZO</h3>
-        <p>पैकिंग की जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('SHRIRAM BENZO')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-    <div class="product"
-         data-category="कीटनाशक"
-         data-name="shriram shera">
-
-      <img src="shera.jpg" alt="SHRIRAM SHERA"
-           onerror="this.alt='SHERA फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">कीटनाशक</span>
-        <h3>SHRIRAM SHERA</h3>
-        <p>पैकिंग की जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('SHRIRAM SHERA')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-    <div class="product"
-         data-category="कीटनाशक"
-         data-name="shriram profen plus">
-
-      <img src="profen.jpg" alt="SHRIRAM PROFEN PLUS"
-           onerror="this.alt='PROFEN PLUS फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">कीटनाशक</span>
-        <h3>SHRIRAM PROFEN PLUS</h3>
-        <p>पैकिंग की जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('SHRIRAM PROFEN PLUS')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-    <div class="product"
-         data-category="फफूंदनाशक"
-         data-name="shriram aleksy">
-
-      <img src="aleksy.jpg" alt="SHRIRAM ALEKSY"
-           onerror="this.alt='ALEKSY फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">फफूंदनाशक</span>
-        <h3>SHRIRAM ALEKSY</h3>
-        <p>पैकिंग की जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('SHRIRAM ALEKSY')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-    <div class="product"
-         data-category="अन्य"
-         data-name="encounter">
-
-      <img src="encounter.jpg" alt="ENCOUNTER"
-           onerror="this.alt='ENCOUNTER फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">अन्य उत्पाद</span>
-        <h3>ENCOUNTER</h3>
-        <p>सही उत्पाद जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('ENCOUNTER')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-    <div class="product"
-         data-category="कीटनाशक"
-         data-name="pactus">
-
-      <img src="pactus.jpg" alt="PACTUS"
-           onerror="this.alt='PACTUS फोटो उपलब्ध नहीं';">
-
-      <div class="product-info">
-        <span class="category">कीटनाशक</span>
-        <h3>PACTUS</h3>
-        <p>सही उत्पाद जानकारी लेबल पर देखें।</p>
-        <div class="price">कीमत: दुकान से पूछें</div>
-        <button class="ask-btn"
-          onclick="askPrice('PACTUS')">
-          कीमत पूछें
-        </button>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="services">
-    <h2>🌾 किसान सेवा</h2>
-
-    <p>• कृषि उत्पादों की उपलब्धता पूछें।</p>
-    <p>• उत्पाद खरीदते समय बिल अवश्य लें।</p>
-    <p>• कृषि रसायनों के लिए पैक पर दिए निर्देश और योग्य कृषि विशेषज्ञ की सलाह मानें।</p>
-
-    <h3>📍 दुकान का पता</h3>
+  <section class="banner">
+    <h2>किसान भाइयों का हार्दिक स्वागत है! 🌱</h2>
     <p>
-      Amandeep Krishi Seva Kendra<br>
-      बेहट पेट्रोल पंप के पास,<br>
-      आनंद बाग, सहारनपुर, उत्तर प्रदेश
+      खेती से जुड़े उत्पाद एक ही जगह देखें।
+      अपने पसंदीदा प्रोडक्ट की कीमत और उपलब्धता
+      दुकान से पूछें।
     </p>
+  </section>
 
-    <a class="ask-btn"
-       style="display:block;text-align:center;text-decoration:none"
-       target="_blank"
-       href="https://www.google.com/maps/search/?api=1&query=Behat+Petrol+Pump+Anand+Bagh+Saharanpur">
-       Google Maps पर देखें
-    </a>
+  <div class="section-title">
+    <h3>🌿 प्रोडक्ट कैटेगरी</h3>
   </div>
 
-  <div class="notice">
-    <b>ध्यान दें:</b> उत्पादों की कीमत और उपलब्धता दुकान से पुष्टि करें।
-    फोटो केवल संबंधित उत्पाद की पहचान के लिए हैं।
+  <section class="categories">
+    <button class="category" onclick="setCategory('सभी')">
+      <span>▦</span>सभी उत्पाद
+    </button>
+    <button class="category" onclick="setCategory('कीटनाशक')">
+      <span>🐛</span>कीटनाशक
+    </button>
+    <button class="category" onclick="setCategory('फफूंदनाशक')">
+      <span>🍃</span>फफूंदनाशक
+    </button>
+    <button class="category" onclick="setCategory('उर्वरक')">
+      <span>🌱</span>उर्वरक
+    </button>
+    <button class="category" onclick="setCategory('अन्य')">
+      <span>🌾</span>अन्य
+    </button>
+  </section>
+
+  <div class="section-title">
+    <h3>🔥 लोकप्रिय उत्पाद</h3>
+    <span id="productCount"></span>
   </div>
 
+  <section class="products" id="products"></section>
+
+  <p class="notice">
+    नोट: कीमत और उपलब्धता दुकान से पुष्टि करने के बाद ही तय होगी।
+    उत्पाद का उपयोग हमेशा लेबल और अधिकृत सलाह के अनुसार करें।
+  </p>
+
+  <section class="features">
+    🌿 कृषि उत्पादों की जानकारी<br>
+    🛍️ उत्पादों की सूची और कीमत पूछने की सुविधा<br>
+    💬 WhatsApp से दुकान से संपर्क<br>
+    🤝 किसान भाइयों के लिए सहायता
+  </section>
 </main>
 
 <footer>
-  🌱 Amandeep Krishi Seva Kendra<br>
-  किसानों की सेवा, विश्वास के साथ
+  <h3>Amandeep Krishi Seva Kendra</h3>
+  <p>बेहट पेट्रोल पंप के पास, आनंद बाग, सहारनपुर, उत्तर प्रदेश</p>
+  <p>उत्पादों की कीमत और उपलब्धता के लिए संपर्क करें।</p>
+  <button class="green-btn" onclick="contactShop()">
+    WhatsApp पर संपर्क करें
+  </button>
 </footer>
 
+<nav class="bottom-nav">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span>🏠</span>होम
+  </button>
+  <button onclick="document.querySelector('.categories').scrollIntoView({behavior:'smooth'})">
+    <span>▦</span>कैटेगरी
+  </button>
+  <button onclick="document.getElementById('searchInput').focus()">
+    <span>🔍</span>खोजें
+  </button>
+  <button onclick="showCart()">
+    <span>🛒</span>कार्ट (<b id="cartCount">0</b>)
+  </button>
+  <button onclick="showProfile()">
+    <span>👤</span>प्रोफाइल
+  </button>
+</nav>
+
 <script>
-let selectedCategory = "all";
+/*
+  अपनी फोटो index.html के साथ उसी GitHub फोल्डर में अपलोड करें।
+  नीचे दिए गए image नाम आपकी अपलोड की गई फोटो के नाम से मेल खाने चाहिए।
+*/
 
-function filterCategory(category, button) {
-  selectedCategory = category;
+const products = [
+  {
+    name: "Encounter",
+    category: "कीटनाशक",
+    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
+    image: "1000051605.jpg"
+  },
+  {
+    name: "SHRIRAM BENZO",
+    category: "कीटनाशक",
+    description: "Emamectin Benzoate 5% SG",
+    image: "image-1791708727504.jpg"
+  },
+  {
+    name: "SHRIRAM SHERA",
+    category: "कीटनाशक",
+    description: "Thiamethoxam 25% WG",
+    image: "image-1791708743441.jpg"
+  },
+  {
+    name: "SHRIRAM PROFEN PLUS",
+    category: "कीटनाशक",
+    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
+    image: "image-1791708755862.jpg"
+  },
+  {
+    name: "SHRIRAM ALEKSY",
+    category: "फफूंदनाशक",
+    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
+    image: "image-1791708765255.jpg"
+  },
+  {
+    name: "PACTUS",
+    category: "कीटनाशक",
+    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
+    image: "image-1791708774906.jpg"
+  },
+  {
+    name: "अन्य उत्पाद",
+    category: "अन्य",
+    description: "विवरण और कीमत दुकान से पूछें।",
+    image: "image-1791708784809.jpg"
+  }
+];
 
-  document.querySelectorAll(".categories button")
-    .forEach(btn => btn.classList.remove("active"));
+let activeCategory = "सभी";
+let cart = [];
 
-  button.classList.add("active");
-  filterProducts();
-}
+function renderProducts() {
+  const query = document.getElementById("searchInput")
+    .value.toLowerCase().trim();
 
-function filterProducts() {
-  const query = document
-    .getElementById("search")
-    .value.toLowerCase();
-
-  document.querySelectorAll(".product").forEach(product => {
-    const name = product.dataset.name;
-    const category = product.dataset.category;
-
-    const matchesName = name.includes(query);
+  const filtered = products.filter(product => {
     const matchesCategory =
-      selectedCategory === "all" ||
-      category === selectedCategory;
+      activeCategory === "सभी" ||
+      product.category === activeCategory;
 
-    product.style.display =
-      matchesName && matchesCategory ? "" : "none";
+    const matchesSearch =
+      product.name.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query);
+
+    return matchesCategory && matchesSearch;
   });
+
+  document.getElementById("productCount").textContent =
+    filtered.length + " उत्पाद";
+
+  document.getElementById("products").innerHTML =
+    filtered.map(product => `
+      <article class="card">
+        <img
+          class="product-image"
+          src="${product.image}"
+          alt="${product.name}"
+          onerror="this.style.display='none'"
+        >
+        <div class="card-content">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <div class="price">₹ कीमत दुकान से पूछें</div>
+          <button class="green-btn"
+            onclick="addToCart('${product.name.replace(/'/g, "\\'")}')">
+            🛒 कार्ट में जोड़ें
+          </button>
+          <br><br>
+          <button class="green-btn"
+            onclick="askPrice('${product.name.replace(/'/g, "\\'")}')">
+            WhatsApp पर कीमत पूछें
+          </button>
+        </div>
+      </article>
+    `).join("") ||
+    "<p>कोई उत्पाद नहीं मिला। दूसरा नाम खोजें।</p>";
 }
 
-document.getElementById("search")
-  .addEventListener("input", filterProducts);
+function setCategory(category) {
+  activeCategory = category;
+  renderProducts();
+  document.getElementById("products")
+    .scrollIntoView({behavior:"smooth"});
+}
 
-function askPrice(productName) {
+function addToCart(name) {
+  cart.push(name);
+  document.getElementById("cartCount").textContent = cart.length;
+  alert(name + " कार्ट में जोड़ दिया गया।");
+}
+
+function showCart() {
+  if (cart.length === 0) {
+    alert("आपका कार्ट अभी खाली है।");
+    return;
+  }
+
+  alert("कार्ट में उत्पाद:\n" + cart.join("\n"));
+}
+
+function askPrice(name) {
+  const message = encodeURIComponent(
+    "नमस्ते, मुझे " + name +
+    " की कीमत और उपलब्धता की जानकारी चाहिए।"
+  );
+
+  window.open("https://wa.me/?text=" + message, "_blank");
+}
+
+function contactShop() {
+  // यहाँ दुकान का सही WhatsApp नंबर जोड़ें।
+  alert("भाई, WhatsApp संपर्क चालू करने के लिए दुकान का नंबर कोड में जोड़ना होगा।");
+}
+
+function showProfile() {
   alert(
-    "उत्पाद: " + productName +
-    "\\nकीमत और उपलब्धता दुकान से पूछें।"
+    "Amandeep Krishi Seva Kendra\n" +
+    "बेहट पेट्रोल पंप के पास, आनंद बाग, सहारनपुर"
   );
 }
+
+renderProducts();
 </script>
 
 </body>
