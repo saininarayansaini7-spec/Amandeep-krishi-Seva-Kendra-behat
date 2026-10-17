@@ -1,490 +1,149 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amandeep Krishi Seva Kendra</title>
-
+<title>Potato Photo Editor PRO</title>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, "Noto Sans Devanagari", sans-serif;
-  background: #f2f8f3;
-  color: #173b29;
-  padding-bottom: 80px;
-}
-
-header {
-  background: linear-gradient(135deg, #006b35, #009447);
-  color: white;
-  padding: 20px 15px;
-  border-radius: 0 0 24px 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo {
-  width: 58px;
-  height: 58px;
-  background: white;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 35px;
-}
-
-.brand h1 {
-  font-size: 20px;
-  line-height: 1.3;
-}
-
-.brand p {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.search {
-  display: flex;
-  gap: 8px;
-  padding: 14px;
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  padding: 13px;
-  border: 1px solid #d4e5d9;
-  border-radius: 12px;
-  font-size: 15px;
-  outline: none;
-}
-
-.search button,
-.green-btn {
-  background: #007b3e;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 16px;
-  cursor: pointer;
-}
-
-.banner {
-  margin: 0 14px 18px;
-  padding: 24px 18px;
-  border-radius: 18px;
-  background: linear-gradient(120deg, #d7f2c9, #fff4c8);
-}
-
-.banner h2 {
-  font-size: 25px;
-  color: #075b30;
-  margin-bottom: 8px;
-}
-
-.banner p {
-  line-height: 1.6;
-}
-
-.section-title {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  padding: 8px;
-}
-
-.category {
-  background: white;
-  border: 1px solid #dcebe0;
-  border-radius: 12px;
-  text-align: center;
-  padding: 12px 3px;
-  cursor: pointer;
-  font-size: 11px;
-}
-
-.category span {
-  display: block;
-  font-size: 25px;
-  margin-bottom: 6px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding: 12px;
-}
-
-.card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid #dcebe0;
-  box-shadow: 0 2px 7px #163e2510;
-}
-
-.product-image {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  background: #fff;
-  padding: 8px;
-}
-
-.card-content {
-  padding: 10px;
-}
-
-.card h3 {
-  font-size: 15px;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 12px;
-  color: #52675a;
-  line-height: 1.5;
-  min-height: 36px;
-}
-
-.price {
-  font-weight: bold;
-  margin: 8px 0;
-  font-size: 13px;
-}
-
-.card button {
-  width: 100%;
-  padding: 10px 5px;
-  font-size: 13px;
-}
-
-.features {
-  background: #e1f4e5;
-  margin: 12px;
-  padding: 15px;
-  border-radius: 15px;
-  line-height: 2;
-  font-size: 13px;
-}
-
-footer {
-  background: #005b30;
-  color: white;
-  text-align: center;
-  padding: 18px 12px;
-  line-height: 1.8;
-  font-size: 13px;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  background: white;
-  border-top: 1px solid #dce8df;
-  padding: 10px 2px;
-  z-index: 10;
-}
-
-.bottom-nav button {
-  border: none;
-  background: transparent;
-  color: #245b3c;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.bottom-nav span {
-  display: block;
-  font-size: 21px;
-  margin-bottom: 3px;
-}
-
-.notice {
-  font-size: 11px;
-  color: #52675a;
-  padding: 8px 14px;
-}
-
-@media (min-width: 700px) {
-  .products {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  main {
-    max-width: 900px;
-    margin: auto;
-  }
-}
+:root{--bg:#0f0f0f;--card:#1e1e1e;--accent:#4a8cff;--text:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:var(--bg);color:var(--text);display:flex;flex-direction:column;height:100vh}
+header{padding:15px;display:flex;justify-content:space-between;align-items:center;background:var(--card)}
+header h1{font-size:18px} header h1 span{color:var(--accent)}
+#canvas-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:#000;position:relative;overflow:hidden}
+#canvas{max-width:90%;max-height:70vh;border-radius:8px}
+.controls{background:var(--card);padding:12px;border-radius:18px 18px 0 0}
+.tools{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+.tools button{background:#2a2a2a;border:none;color:#fff;padding:10px 14px;border-radius:10px;white-space:nowrap}
+.tools button.active{background:var(--accent)}
+.filters{display:flex;gap:10px;overflow-x:auto;margin:10px 0}
+.filter{flex:0 0 60px;text-align:center;font-size:11px}
+.filter div{width:60px;height:60px;border-radius:12px;background:#333;margin-bottom:4px}
+.sliders label{font-size:12px;display:block;margin:8px 0 4px}
+input[type=range]{width:100%}
+.bottom-nav{display:flex;justify-content:space-around;padding:10px 0}
+.bottom-nav button{background:none;border:none;color:#888;font-size:12px}
+.bottom-nav button.active{color:var(--accent)}
+#textInput{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:none;padding:8px;font-size:20px;border:2px dashed var(--accent);background:rgba(0,0,0,.5);color:#fff}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="brand">
-    <div class="logo">🌾</div>
-    <div>
-      <h1>Amandeep<br>Krishi Seva Kendra</h1>
-      <p>किसानों की सेवा • सही जानकारी • भरोसेमंद दुकान</p>
-    </div>
-  </div>
+<h1>🥔 Potato Photo Editor <span>PRO</span></h1>
+<div>
+<input type="file" id="upload" accept="image/*" hidden>
+<button onclick="document.getElementById('upload').click()" style="background:var(--accent);border:none;color:#fff;padding:8px 14px;border-radius:8px">Upload</button>
+<button onclick="downloadImg()" style="background:#fff;border:none;color:#000;padding:8px 14px;border-radius:8px;margin-left:6px">Save HD</button>
+</div>
 </header>
 
-<div class="search">
-  <input id="searchInput"
-         type="search"
-         placeholder="प्रोडक्ट का नाम खोजें..."
-         oninput="renderProducts()">
-  <button onclick="renderProducts()">🔍</button>
+<div id="canvas-wrap">
+<canvas id="canvas"></canvas>
+<input type="text" id="textInput" placeholder="Yahan likho">
 </div>
 
-<main>
-  <section class="banner">
-    <h2>किसान भाइयों का हार्दिक स्वागत है! 🌱</h2>
-    <p>
-      खेती से जुड़े उत्पाद एक ही जगह देखें।
-      अपने पसंदीदा प्रोडक्ट की कीमत और उपलब्धता
-      दुकान से पूछें।
-    </p>
-  </section>
+<div class="controls">
+<div class="tools">
+<button onclick="setMode('filters')" class="active" id="btn-filters">Filters</button>
+<button onclick="setMode('adjust')" id="btn-adjust">Adjust</button>
+<button onclick="rotateImg(90)" >Rotate</button>
+<button onclick="flipImg('h')">Flip H</button>
+<button onclick="flipImg('v')">Flip V</button>
+<button onclick="removeBG()">BG Remove</button>
+<button onclick="addTextMode()">Text</button>
+<button onclick="clearCanvas()">Clear</button>
+</div>
 
-  <div class="section-title">
-    <h3>🌿 प्रोडक्ट कैटेगरी</h3>
-  </div>
+<div id="panel-filters" class="filters">
+<div class="filter" onclick="applyFilter('none')"><div style="background:url('') center/cover"></div>Original</div>
+<div class="filter" onclick="applyFilter('grayscale(100%)')"><div style="filter:grayscale(1)"></div>B&W</div>
+<div class="filter" onclick="applyFilter('sepia(100%)')"><div style="filter:sepia(1)"></div>Vintage</div>
+<div class="filter" onclick="applyFilter('saturate(2)')"><div style="filter:saturate(2)"></div>Vivid</div>
+<div class="filter" onclick="applyFilter('contrast(1.4) brightness(0.9)')"><div style="filter:contrast(1.4)"></div>Moody</div>
+<div class="filter" onclick="applyFilter('hue-rotate(180deg)')"><div style="filter:hue-rotate(180deg)"></div>Cool</div>
+</div>
 
-  <section class="categories">
-    <button class="category" onclick="setCategory('सभी')">
-      <span>▦</span>सभी उत्पाद
-    </button>
-    <button class="category" onclick="setCategory('कीटनाशक')">
-      <span>🐛</span>कीटनाशक
-    </button>
-    <button class="category" onclick="setCategory('फफूंदनाशक')">
-      <span>🍃</span>फफूंदनाशक
-    </button>
-    <button class="category" onclick="setCategory('उर्वरक')">
-      <span>🌱</span>उर्वरक
-    </button>
-    <button class="category" onclick="setCategory('अन्य')">
-      <span>🌾</span>अन्य
-    </button>
-  </section>
-
-  <div class="section-title">
-    <h3>🔥 लोकप्रिय उत्पाद</h3>
-    <span id="productCount"></span>
-  </div>
-
-  <section class="products" id="products"></section>
-
-  <p class="notice">
-    नोट: कीमत और उपलब्धता दुकान से पुष्टि करने के बाद ही तय होगी।
-    उत्पाद का उपयोग हमेशा लेबल और अधिकृत सलाह के अनुसार करें।
-  </p>
-
-  <section class="features">
-    🌿 कृषि उत्पादों की जानकारी<br>
-    🛍️ उत्पादों की सूची और कीमत पूछने की सुविधा<br>
-    💬 WhatsApp से दुकान से संपर्क<br>
-    🤝 किसान भाइयों के लिए सहायता
-  </section>
-</main>
-
-<footer>
-  <h3>Amandeep Krishi Seva Kendra</h3>
-  <p>बेहट पेट्रोल पंप के पास, आनंद बाग, सहारनपुर, उत्तर प्रदेश</p>
-  <p>उत्पादों की कीमत और उपलब्धता के लिए संपर्क करें।</p>
-  <button class="green-btn" onclick="contactShop()">
-    WhatsApp पर संपर्क करें
-  </button>
-</footer>
-
-<nav class="bottom-nav">
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <span>🏠</span>होम
-  </button>
-  <button onclick="document.querySelector('.categories').scrollIntoView({behavior:'smooth'})">
-    <span>▦</span>कैटेगरी
-  </button>
-  <button onclick="document.getElementById('searchInput').focus()">
-    <span>🔍</span>खोजें
-  </button>
-  <button onclick="showCart()">
-    <span>🛒</span>कार्ट (<b id="cartCount">0</b>)
-  </button>
-  <button onclick="showProfile()">
-    <span>👤</span>प्रोफाइल
-  </button>
-</nav>
+<div id="panel-adjust" style="display:none" class="sliders">
+<label>Brightness <span id="vB">100</span></label><input type="range" id="brightness" min="0" max="200" value="100" oninput="updateAdjust()">
+<label>Contrast <span id="vC">100</span></label><input type="range" id="contrast" min="0" max="200" value="100" oninput="updateAdjust()">
+<label>Saturation <span id="vS">100</span></label><input type="range" id="saturate" min="0" max="200" value="100" oninput="updateAdjust()">
+<label>Blur <span id="vBl">0</span></label><input type="range" id="blur" min="0" max="10" value="0" oninput="updateAdjust()">
+</div>
+</div>
 
 <script>
-/*
-  अपनी फोटो index.html के साथ उसी GitHub फोल्डर में अपलोड करें।
-  नीचे दिए गए image नाम आपकी अपलोड की गई फोटो के नाम से मेल खाने चाहिए।
-*/
+const canvas=document.getElementById('canvas');
+const ctx=canvas.getContext('2d');
+let img=new Image();
+let currentFilter='none';
+let flipH=1, flipV=1, rot=0;
+let b=100,c=100,s=100,bl=0;
 
-const products = [
-  {
-    name: "Encounter",
-    category: "कीटनाशक",
-    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
-    image: "1000051605.jpg"
-  },
-  {
-    name: "SHRIRAM BENZO",
-    category: "कीटनाशक",
-    description: "Emamectin Benzoate 5% SG",
-    image: "image-1791708727504.jpg"
-  },
-  {
-    name: "SHRIRAM SHERA",
-    category: "कीटनाशक",
-    description: "Thiamethoxam 25% WG",
-    image: "image-1791708743441.jpg"
-  },
-  {
-    name: "SHRIRAM PROFEN PLUS",
-    category: "कीटनाशक",
-    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
-    image: "image-1791708755862.jpg"
-  },
-  {
-    name: "SHRIRAM ALEKSY",
-    category: "फफूंदनाशक",
-    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
-    image: "image-1791708765255.jpg"
-  },
-  {
-    name: "PACTUS",
-    category: "कीटनाशक",
-    description: "पैकिंग और उत्पाद की जानकारी दुकान से पूछें।",
-    image: "image-1791708774906.jpg"
-  },
-  {
-    name: "अन्य उत्पाद",
-    category: "अन्य",
-    description: "विवरण और कीमत दुकान से पूछें।",
-    image: "image-1791708784809.jpg"
+document.getElementById('upload').onchange=e=>{
+ const file=e.target.files[0];
+ if(!file) return;
+ img.src=URL.createObjectURL(file);
+ img.onload=()=>{ canvas.width=img.width; canvas.height=img.height; draw(); }
+}
+function draw(){
+ ctx.save();
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.translate(canvas.width/2, canvas.height/2);
+ ctx.rotate(rot*Math.PI/180);
+ ctx.scale(flipH, flipV);
+ ctx.translate(-canvas.width/2, -canvas.height/2);
+ ctx.filter=`${currentFilter} brightness(${b}%) contrast(${c}%) saturate(${s}%) blur(${bl}px)`;
+ ctx.drawImage(img,0,0,canvas.width,canvas.height);
+ ctx.restore();
+}
+function applyFilter(f){ currentFilter=f; draw(); }
+function updateAdjust(){
+ b=document.getElementById('brightness').value;
+ c=document.getElementById('contrast').value;
+ s=document.getElementById('saturate').value;
+ bl=document.getElementById('blur').value;
+ document.getElementById('vB').innerText=b;
+ document.getElementById('vC').innerText=c;
+ document.getElementById('vS').innerText=s;
+ document.getElementById('vBl').innerText=bl;
+ draw();
+}
+function setMode(m){
+ document.getElementById('panel-filters').style.display=m==='filters'?'flex':'none';
+ document.getElementById('panel-adjust').style.display=m==='adjust'?'block':'none';
+ document.querySelectorAll('.tools button').forEach(b=>b.classList.remove('active'));
+ if(m==='filters') document.getElementById('btn-filters').classList.add('active');
+ if(m==='adjust') document.getElementById('btn-adjust').classList.add('active');
+}
+function rotateImg(d){ rot=(rot+d)%360; draw(); }
+function flipImg(dir){ if(dir==='h') flipH*=-1; else flipV*=-1; draw(); }
+function removeBG(){
+ // Simple BG remove - makes white-ish pixels transparent
+ let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+ let data=imageData.data;
+ for(let i=0;i<data.length;i+=4){
+   if(data[i]>230 && data[i+1]>230 && data[i+2]>230){ data[i+3]=0; }
+ }
+ ctx.putImageData(imageData,0,0);
+}
+function addTextMode(){
+ const t=document.getElementById('textInput');
+ t.style.display='block'; t.focus();
+ t.onkeydown=e=>{
+  if(e.key==='Enter'){
+   ctx.font='bold 40px system-ui'; ctx.fillStyle='#fff'; ctx.strokeStyle='#000'; ctx.lineWidth=4;
+   ctx.strokeText(t.value, 50, 80); ctx.fillText(t.value, 50, 80);
+   t.style.display='none'; t.value='';
   }
-];
-
-let activeCategory = "सभी";
-let cart = [];
-
-function renderProducts() {
-  const query = document.getElementById("searchInput")
-    .value.toLowerCase().trim();
-
-  const filtered = products.filter(product => {
-    const matchesCategory =
-      activeCategory === "सभी" ||
-      product.category === activeCategory;
-
-    const matchesSearch =
-      product.name.toLowerCase().includes(query) ||
-      product.category.toLowerCase().includes(query);
-
-    return matchesCategory && matchesSearch;
-  });
-
-  document.getElementById("productCount").textContent =
-    filtered.length + " उत्पाद";
-
-  document.getElementById("products").innerHTML =
-    filtered.map(product => `
-      <article class="card">
-        <img
-          class="product-image"
-          src="${product.image}"
-          alt="${product.name}"
-          onerror="this.style.display='none'"
-        >
-        <div class="card-content">
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <div class="price">₹ कीमत दुकान से पूछें</div>
-          <button class="green-btn"
-            onclick="addToCart('${product.name.replace(/'/g, "\\'")}')">
-            🛒 कार्ट में जोड़ें
-          </button>
-          <br><br>
-          <button class="green-btn"
-            onclick="askPrice('${product.name.replace(/'/g, "\\'")}')">
-            WhatsApp पर कीमत पूछें
-          </button>
-        </div>
-      </article>
-    `).join("") ||
-    "<p>कोई उत्पाद नहीं मिला। दूसरा नाम खोजें।</p>";
+ }
 }
-
-function setCategory(category) {
-  activeCategory = category;
-  renderProducts();
-  document.getElementById("products")
-    .scrollIntoView({behavior:"smooth"});
+function clearCanvas(){ ctx.clearRect(0,0,canvas.width,canvas.height); location.reload(); }
+function downloadImg(){
+ const link=document.createElement('a');
+ link.download='Potato-Edit-HD.png';
+ link.href=canvas.toDataURL('image/png',1.0);
+ link.click();
 }
-
-function addToCart(name) {
-  cart.push(name);
-  document.getElementById("cartCount").textContent = cart.length;
-  alert(name + " कार्ट में जोड़ दिया गया।");
-}
-
-function showCart() {
-  if (cart.length === 0) {
-    alert("आपका कार्ट अभी खाली है।");
-    return;
-  }
-
-  alert("कार्ट में उत्पाद:\n" + cart.join("\n"));
-}
-
-function askPrice(name) {
-  const message = encodeURIComponent(
-    "नमस्ते, मुझे " + name +
-    " की कीमत और उपलब्धता की जानकारी चाहिए।"
-  );
-
-  window.open("https://wa.me/?text=" + message, "_blank");
-}
-
-function contactShop() {
-  // यहाँ दुकान का सही WhatsApp नंबर जोड़ें।
-  alert("भाई, WhatsApp संपर्क चालू करने के लिए दुकान का नंबर कोड में जोड़ना होगा।");
-}
-
-function showProfile() {
-  alert(
-    "Amandeep Krishi Seva Kendra\n" +
-    "बेहट पेट्रोल पंप के पास, आनंद बाग, सहारनपुर"
-  );
-}
-
-renderProducts();
 </script>
-
 </body>
 </html>
